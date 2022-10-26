@@ -1,0 +1,48 @@
+<div class="table-responsive fixTableHead" >
+  <table class="table table-striped  table-bordered  table-sm mb-1 "
+         [ngClass]="{'table_loader': loading$ | async  }">
+    <thead>
+    <tr>
+      <th scope="col" sortable="codDureza" (sort)="onSort($event)"><span>Codigo</span></th>
+      <th scope="col" sortable="dureza" (sort)="onSort($event)"><span>Descripcion</span></th>
+      <th scope="col" class="text-center w-action"><span>Acciones</span></th>
+    </tr>
+
+    </thead>
+    <tbody>
+    <ng-container *ngIf="durezas$ | async as durezas">
+      <tr *ngFor="let dureza of  durezas"
+          [ngClass]="{'tr__loader': dureza.codDureza === durezaEdit$.codDureza}"  >
+        <td><span>{{ dureza.codDureza }}</span></td>
+        <td><span>{{ dureza.dureza }}</span></td>
+
+        <td >
+          <div class="table-action-center">
+            <a class="btn-secondary-app " (click)="_edit(dureza)">
+              <i class="fas fa-edit "></i>
+            </a>
+            <a class="btn-cancel-app " (click)="_delete(dureza)">
+              <i class="fas fa-trash"></i>
+            </a>
+          </div>
+        </td>
+      </tr>
+    </ng-container>
+
+    <tr *ngIf="(durezas$ | async)?.length === 0" >
+      <td colspan="99" class="text-center"><span>No hay registros</span></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <ng-container *ngIf="durezas$ | async as durezas " >
+    <ng-container *ngIf="durezasAux$ | async as durezasAux ">
+      <app-paginado
+        [items]="durezas"
+        [itemsAux]="durezasAux"
+        (itemsPaginado)="onItemsPaginado($event)"></app-paginado>
+    </ng-container>
+  </ng-container>
+</div>
+
+

@@ -1,0 +1,21 @@
+@import "../../../../../scss/variables";
+.content-page{
+  background-color: white;
+  height: 100vh;
+  overflow-y: auto;
+  padding-bottom: $header-size + $header-size;
+}
+.tree-card {
+  margin-bottom: $tamano-pagina $tamano-pagina-complete;
+  background-color: $color-container-primary;
+  &__header{
+    color: $color-text-primary;
+    background-color: $color-container-primary-dark;
+    padding: $tamano-pagina;
+    border: none;
+  }
+
+  &__body{
+    padding: $navigation-a-padding-y 0;
+  }
+}

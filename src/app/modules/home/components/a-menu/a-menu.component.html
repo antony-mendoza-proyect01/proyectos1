@@ -1,0 +1,27 @@
+<ng-container *ngIf="navigation">
+  <a class="a-navigation"
+      routerLinkActive="activeUrl"
+     *ngIf="navigation.tieneMenu"
+      (click)="active = !active"
+      [attr.aria-expanded]="active"
+      aria-controls="collapseExample">
+
+
+    <span >{{navigation.titulo}}</span>
+
+
+    <i class="fas"
+       *ngIf="navigation.subMenu.length"
+       [ngClass]="{'fa-angle-right' : !active,
+                      'fa-angle-down' : active}"></i>
+
+  </a>
+
+  <ul  class="collapse show list-unstyled ms-3"  [(ngbCollapse)]="!active">
+    <li   *ngFor="let menu of  navigation.subMenu">
+      <app-a-not-menu  [navigation]="menu"></app-a-not-menu>
+
+      <app-a-menu *ngIf="navigation.tieneMenu" [navigation]="menu"></app-a-menu>
+    </li>
+  </ul>
+</ng-container>

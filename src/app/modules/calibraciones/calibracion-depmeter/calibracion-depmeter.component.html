@@ -1,0 +1,32 @@
+
+<div class="d-flex flex-column">
+
+  <div class="d-flex justify-content-between align-items-center py-3 px-4 bg-c-container">
+    <div class="d-flex align-items-center ">
+      <h4 class="fw-bold ">Calibracion de Dipmeter </h4>
+    </div>
+
+    <div class="d-flex align-items-center gap-3">
+
+      <app-form-filter-table>
+        <!--        (filter)="onFilter($event)">-->
+
+      </app-form-filter-table>
+
+      <button class="btn btn-primary-app "
+              (click)="onCreate()" >
+        <i class="fas  fa-plus "></i>
+        Nueva Calibración</button>
+
+    </div>
+  </div>
+
+
+  <app-listado>
+<!--    (edit)="onEdit($event)"-->
+<!--    (delete)="onDelete($event)"-->
+  ></app-listado>
+
+</div>
+
+

@@ -1,0 +1,11 @@
+@import "../../../../../scss/variables";
+
+ul li{
+  width: 100%;
+}
+
+.submenu{
+  padding-left: $navigation-a-padding-x + 2 !important;
+}
+
+

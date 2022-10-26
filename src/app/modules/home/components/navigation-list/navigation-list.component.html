@@ -1,0 +1,12 @@
+<ul class="list-unstyled components">
+  <li *ngFor="let navigation of navigations">
+    <!--not menu-->
+    <app-a-not-menu [navigation]="navigation"></app-a-not-menu>
+    <!--not menu-->
+
+
+    <!--menu-->
+    <app-a-menu [navigation]="navigation"></app-a-menu>
+    <!--menu-->
+  </li>
+</ul>

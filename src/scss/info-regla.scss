@@ -1,0 +1,135 @@
+  @import "variables";
+
+  .app-info{
+    width: 100%;
+    height: 100%;
+
+    &__container {
+      display: flex;
+      justify-content: flex-end;
+      gap: .25rem;
+
+      &__pozo{
+        position: relative;
+        width: 80px;
+        border-left: 1px solid $color-regla;
+        border-right: 1px solid $color-regla;
+
+        figure{
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+        }
+
+        span {
+          position: absolute;
+          top: 0;
+          font-size: $font-size-secondary - 2px;
+          right: 0;
+        }
+      }
+
+      &__regla{
+        margin-left: 2.5rem;
+        position: relative;
+        display:block;
+        border-left: 1px solid  $color-regla;
+
+        &__info{
+          position:absolute;
+          display:block;
+          background-color: $color-regla;
+          width: 9px;
+          height: 1px;
+          left: -9px ;
+
+          span{
+            font-size: $font-size-secondary;
+            position:absolute;
+            display:block;
+            left: -25px ;
+            bottom: -10px ;
+          }
+        }
+
+        figure {
+          border-left: 1px solid $color-regla;
+        }
+      }
+
+      &__data{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+      }
+
+      &__intervalo {
+        display:block;
+
+        &__linea{
+          position:absolute;
+          display:block;
+          left: 0 ;
+          height: 2px;
+          margin-left: 3rem;
+          background-color: red;
+          width: calc(100% - 2.5rem - .25rem - 1rem - 2px - 3rem);
+          z-index: 1;
+          font-size: $font-size-secondary;
+
+        }
+        &__info{
+          position:absolute;
+          display:block;
+          left: 0 ;
+          height: -6px;
+          margin-left: 3rem;
+          font-size: $font-size-secondary;
+
+          &__profundidad{
+            display: flex;
+            flex-direction: column;
+            line-height: 1;
+            margin-top: 2px;
+            margin-left: -2.5rem;
+          }
+
+          span{
+            font-size: $font-size-secondary;
+          }
+
+        }
+
+      }
+
+    }
+  }
+
+  figure{
+    margin: 0;
+  }
+
+  .active-descripcion-nucleos{
+    width: 86px;
+    margin-left: -4px;
+    border: 2px solid #000000 !important;
+    box-shadow: 0 0.1rem 0.5rem rgb(0, 0, 0) !important;
+  }
+  .active-datos-carbon{
+    width: 86px;
+    margin-left: -4px;
+    border: 2px solid #ffffff !important;
+    box-shadow: 0 0.1rem 0.5rem rgb(0, 0, 0) !important;
+  }
+  .active-impresion-seudopozo{
+    width: 86px;
+    margin-left: -4px;
+    border: 2px solid #000000 !important;
+    box-shadow: 0 0.1rem 0.5rem rgb(0, 0, 0) !important;
+  }
+  // media QueryList
+  @media (max-width: $breakpoint-tel) {
+    .app-info__container{
+    }
+  }

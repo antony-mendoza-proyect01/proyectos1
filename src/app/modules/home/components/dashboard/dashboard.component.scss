@@ -1,0 +1,71 @@
+@import "../../../../../scss/variables";
+
+#content {
+  width: 100%;
+  min-height: 100vh;
+  transition: all 0.3s;
+  .content-router{
+    width: 100%;
+  }
+  .header-fixed{
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1039;
+  }
+}
+#sidebar {
+  background:  $color-container-primary-dark;
+  min-width: $navigation-size;
+  max-width: $navigation-size;
+  position: sticky;
+  top: $header-size;
+  color: white;
+  overflow-y: auto;
+  transition: all 0.3s;
+  padding: 10px 0 $header-size;
+  &.active {
+    margin-left: -$navigation-size;
+  }
+}
+
+.container-fluid-dashboard{
+  overflow-y: auto;
+  padding: 0 0 $header-size;
+}
+.content-page{
+  display: flex;
+  height: 100vh;
+  padding-top: $header-size;
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 998;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+  &.active {
+    display: block;
+    opacity: 1;
+  }
+}
+
+/**********************
+    MEDIAQUERIES
+***********************/
+@media (max-width: $breakpoint-tablet) {
+  #content {
+    transition: all 0.3s;
+    position: absolute;
+    top: 0;
+    right: 0;
+    .content-router{
+      margin: 0;
+    }
+  }
+}

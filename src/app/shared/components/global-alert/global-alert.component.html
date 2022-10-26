@@ -1,0 +1,7 @@
+<ngb-alert
+  #selfClosingAlert
+  *ngIf="mensaje"
+  type="success"
+  (closed)="mensaje = ''">
+  {{ mensaje }}
+</ngb-alert>

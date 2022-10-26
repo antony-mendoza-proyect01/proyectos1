@@ -1,0 +1,334 @@
+@import "variables";
+
+@import "google-fonts";
+
+@import "colors";
+@import "table-loading";
+@import "botones";
+@import "navigation";
+@import "text";
+@import "input";
+@import "info-regla";
+/* ========================================================
+initial
+========================================================*/
+html{
+overflow-y: hidden;
+}
+body, html{
+  background-color: $color-panel;
+  height: 100%;
+  font-family: 'Rubik', sans-serif;
+}
+/* ========================================================
+aplicativo
+========================================================*/
+.pointer-events-none {
+  pointer-events: none!important;
+}
+.border-radius-app {
+  border-radius: $border-radius;
+}
+
+a,
+a:hover,
+a:focus {
+  cursor: pointer;
+  text-decoration: none;
+  transition: all $transition-time;
+}
+.animation-sync{
+  animation-name: rotate;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  border-radius: 50%;
+}
+@keyframes rotate{
+  from{ transform: rotate(-360deg); }
+  to{ transform: rotate(360deg); }
+}
+
+//cambios
+.card{
+  border-radius: $border-radius;
+  .card-header{
+    //padding-bottom: 0;
+    border-radius: $border-radius $border-radius 0 0;
+  }
+
+  .card-footer{
+    border-radius: 0 0 $border-radius $border-radius;
+  }
+
+
+  &-header-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    //background-color: white;
+    gap: $tamano-pagina;
+    padding-bottom: $tamano-pagina !important;
+    //background-color: $color-panel;
+
+    &__title{
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: $navigation-a-padding-x;
+
+      h5, p{
+        color: $color-container-primary;
+        text-transform: uppercase;
+        font-weight: bold;
+      }
+
+    }
+
+    &__action{
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: $navigation-a-padding-x;
+    }
+  }
+}
+.bg-container-table{
+  background-color: rgba(0, 86, 203, 0.02) !important;
+  --bs-table-accent-bg: rgba(0, 86, 203, 0.02)!important;
+}
+
+.modal-content{
+  border-radius: $border-radius;
+}
+h4{
+  color: $color-container-primary;
+}
+.modal-header h5{
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: $color-container-primary;
+  text-transform: uppercase !important;
+}
+.modal-body {
+  form, .container-fluid{
+    padding: 0;
+  }
+}
+.w-action{
+  width: 140px;
+}
+.table-selected{
+  background-color: $color-container-primary-dark !important;
+  --bs-table-accent-bg: $color-container-primary-dark !important;
+  td {
+    color: white !important;
+    background-color: $color-container-primary-dark !important;
+    --bs-table-accent-bg: $color-container-primary-dark !important;
+  }
+}
+
+.opacity{
+  opacity: 0.8;
+}
+// edit
+.shadow {
+  box-shadow: 0 0.1rem 0.5rem rgb(0 0 0 / 15%) !important;
+}
+.invalid-feedback div {
+  font-size: $font-size-secondary;
+  line-height: 1;
+}
+
+.p-sticky{
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.c-sticky-info{
+  position: sticky;
+  top: 5.25rem;
+  z-index: 1;
+
+  & .card-body{
+    max-height: calc(100vh - 16rem);
+    overflow-y: auto;
+  }
+
+  & .card-footer{
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+.c-sticky-info-detail {
+  top: 6.5rem;
+}
+.text-app{
+  display: flex;
+  align-items: center;
+  gap:$tamano-pagina;
+}
+.alert{
+  margin-bottom:  0;
+  padding: $tamano-pagina;
+}
+
+// z-index
+.z-10{
+  z-index: 10;
+}
+
+.app-info__container__data__detail {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
+  width: 100%;
+
+  &__title{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-weight: bold;
+    width: 50%;
+  }
+  &__description{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 50%;
+    font-size: $font-size-secondary;
+  }
+
+  span{
+    font-size: $font-size-secondary;
+  }
+}
+
+.grafica{
+  display: flex;
+  gap: 0.5rem;
+  width: 100%;
+  padding: $tamano-pagina $tamano-pagina + $tamano-pagina;
+
+  &-container{
+    width: 23%;
+  }
+
+  &-edit{
+    width: 39%
+  }
+
+  &-router{
+    width: 38%
+  }
+
+
+  &-container-grafica{
+    display: flex;
+    width: 69%;
+    & .card-header{
+      background-color: $color-container;
+    }
+    &-1{
+      width: 40%;
+    }
+    &-2{
+      width: 30%;
+    }
+    &-3{
+      width: 30%;
+    }
+  }
+
+  &-container-edit{
+    width: 31%;
+  }
+
+
+}
+
+.input-initial {
+  height: initial !important;
+  min-height: initial!important;
+  max-height: initial!important;
+  padding: 0.2rem!important;
+}
+
+.fs-secondary-minus{
+  font-size: $font-size-secondary - 2px;
+}
+
+.app-container-title {
+  display: flex;
+  justify-content:space-between;
+  z-index: 10;
+  padding: 1rem 1.5rem;
+  background-color: $color-container;
+  border-bottom: 1px solid $color-border;
+  //
+
+  &-data{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+
+    &-titulo {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      line-height: 1;
+    }
+
+  }
+
+  &-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $tamano-pagina;
+  }
+}
+
+// media QueryList
+@media (max-width: $breakpoint-tel) {
+  .d-xs-none{
+    display: none !important;
+  }
+
+  .p-sticky{
+    flex-direction: column;
+  }
+
+  .grafica{
+    //overflow-x: scroll;
+
+    &-container{
+      width: auto;
+      .card{
+        width: 250px
+      }
+    }
+
+    &-edit{
+      width: auto;
+      .card{
+        width: 100%;
+      }
+    }
+
+    &-router{
+      width: auto;
+    }
+  }
+
+  .p-sticky{
+    position: initial;
+  }
+
+
+  .c-sticky-info {
+    top: 1rem;
+  }
+}

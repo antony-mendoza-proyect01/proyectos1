@@ -1,0 +1,48 @@
+<div class="table-responsive fixTableHead" >
+  <table class="table table-striped  table-bordered  table-sm mb-1 "
+         [ngClass]="{'table_loader': loading$ | async  }">
+    <thead>
+    <tr>
+      <th scope="col" sortable="codigo" (sort)="onSort($event)"><span>Codigo</span></th>
+      <th scope="col" sortable="municipio" (sort)="onSort($event)"><span>Municipio</span></th>
+      <th scope="col" class="text-center w-action"><span>Acciones</span></th>
+    </tr>
+
+    </thead>
+    <tbody>
+    <ng-container *ngIf="municipios$ | async as municipios">
+      <tr *ngFor="let municipio of  municipios"
+          [ngClass]="{'tr__loader': municipio.codigo === municipioEdit$.codigo}"  >
+        <td><span>{{ municipio.codigo }}</span></td>
+        <td><span>{{ municipio.municipio }}</span></td>
+
+        <td >
+          <div class="table-action-center">
+            <a class="btn-secondary-app " (click)="_edit(municipio)">
+              <i class="fas fa-edit "></i>
+            </a>
+            <a class="btn-cancel-app " (click)="_delete(municipio)">
+              <i class="fas fa-trash"></i>
+            </a>
+          </div>
+        </td>
+      </tr>
+    </ng-container>
+
+    <tr *ngIf="(municipios$ | async)?.length === 0" >
+      <td colspan="99" class="text-center"><span>No hay registros</span></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <ng-container *ngIf="municipios$ | async as municipios " >
+    <ng-container *ngIf="municipiosAux$ | async as municipiosAux ">
+      <app-paginado
+        [items]="municipios"
+        [itemsAux]="municipiosAux"
+        (itemsPaginado)="onItemsPaginado($event)"></app-paginado>
+    </ng-container>
+  </ng-container>
+</div>
+
+

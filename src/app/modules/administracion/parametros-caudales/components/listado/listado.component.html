@@ -1,0 +1,48 @@
+<div class="table-responsive fixTableHead" >
+  <table class="table table-striped  table-bordered  table-sm mb-1 "
+         [ngClass]="{'table_loader': loading$ | async  }">
+    <thead>
+    <tr>
+      <th scope="col" sortable="codigo" (sort)="onSort($event)"><span>Codigo</span></th>
+      <th scope="col" sortable="caudal" (sort)="onSort($event)"><span>Caudal</span></th>
+      <th scope="col" class="text-center w-action"><span>Acciones</span></th>
+    </tr>
+
+    </thead>
+    <tbody>
+    <ng-container *ngIf="caudales$ | async as caudales">
+      <tr *ngFor="let caudal of  caudales"
+          [ngClass]="{'tr__loader': caudal.codigo === caudalEdit$.codigo}"  >
+        <td><span>{{ caudal.codigo }}</span></td>
+        <td><span>{{ caudal.caudal }}</span></td>
+
+        <td >
+          <div class="table-action-center">
+            <a class="btn-secondary-app " (click)="_edit(caudal)">
+              <i class="fas fa-edit "></i>
+            </a>
+            <a class="btn-cancel-app " (click)="_delete(caudal)">
+              <i class="fas fa-trash"></i>
+            </a>
+          </div>
+        </td>
+      </tr>
+    </ng-container>
+
+    <tr *ngIf="(caudales$ | async)?.length === 0" >
+      <td colspan="99" class="text-center"><span>No hay registros</span></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <ng-container *ngIf="caudales$ | async as caudales " >
+    <ng-container *ngIf="caudalesAux$ | async as caudalesAux ">
+      <app-paginado
+        [items]="caudales"
+        [itemsAux]="caudalesAux"
+        (itemsPaginado)="onItemsPaginado($event)"></app-paginado>
+    </ng-container>
+  </ng-container>
+</div>
+
+

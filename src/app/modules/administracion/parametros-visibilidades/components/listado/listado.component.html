@@ -1,0 +1,48 @@
+<div class="table-responsive fixTableHead" >
+  <table class="table table-striped  table-bordered  table-sm mb-1 "
+         [ngClass]="{'table_loader': loading$ | async  }">
+    <thead>
+    <tr>
+      <th scope="col" sortable="codVisibilidad" (sort)="onSort($event)"><span>codigo</span></th>
+      <th scope="col" sortable="visibilidad" (sort)="onSort($event)"><span>visibilidad</span></th>
+      <th scope="col" class="text-center w-action"><span>Acciones</span></th>
+    </tr>
+
+    </thead>
+    <tbody>
+    <ng-container *ngIf="visibilidades$ | async as visibilidades">
+      <tr *ngFor="let visibilidad of  visibilidades"
+          [ngClass]="{'tr__loader': visibilidad.codVisibilidad === visibilidadEdit$.codVisibilidad}"  >
+        <td><span>{{ visibilidad.codVisibilidad }}</span></td>
+        <td><span>{{ visibilidad.visibilidad }}</span></td>
+
+        <td >
+          <div class="table-action-center">
+            <a class="btn-secondary-app " (click)="_edit(visibilidad)">
+              <i class="fas fa-edit  "></i>
+            </a>
+            <a class="btn-cancel-app " (click)="_delete(visibilidad)">
+              <i class="fas fa-trash"></i>
+            </a>
+          </div>
+        </td>
+      </tr>
+    </ng-container>
+
+    <tr *ngIf="(visibilidades$ | async)?.length === 0" >
+      <td colspan="99" class="text-center"><span>No hay registros</span></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <ng-container *ngIf="visibilidades$ | async as visibilidades " >
+    <ng-container *ngIf="visibilidadesAux$ | async as visibilidadesAux ">
+      <app-paginado
+        [items]="visibilidades"
+        [itemsAux]="visibilidadesAux"
+        (itemsPaginado)="onItemsPaginado($event)"></app-paginado>
+    </ng-container>
+  </ng-container>
+</div>
+
+

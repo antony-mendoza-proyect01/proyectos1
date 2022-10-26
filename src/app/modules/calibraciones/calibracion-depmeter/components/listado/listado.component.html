@@ -1,0 +1,65 @@
+
+<div class="table-responsive fixTableHead" >
+  <table class="table table-striped table-bordered  table-sm mb-1 ">
+    <!--         [ngClass]="{'table_loader': loading$ | async  }">-->
+    <thead>
+    <tr>
+      <th scope="col" sortable="area" (sort)="($event)"><span>Codigo</span></th>
+      <th scope="col" sortable="area" (sort)="($event)"><span>Fecha</span></th>
+      <th scope="col" sortable="area" (sort)="($event)"><span>Unidad</span></th>
+      <th scope="col" sortable="buzamientoPromedio" (sort)="($event)"><span>Operador</span></th>
+      <th scope="col" sortable="codigoGdb" (sort)="($event)"><span>Serial Sonda</span></th>
+      <th scope="col" sortable="pozoDesviado" (sort)="($event)" ><span>Tipo de Sonda</span></th>
+      <th scope="col" sortable="pozoDesviado" (sort)="($event)" ><span>Estado</span></th>
+      <th scope="col" class="text-center w-action"><span>Acciones</span></th>
+    </tr>
+    </thead>
+
+    <tbody>
+
+    <!--      *ngIf="areas$ | async as areas">-->
+
+    <!--        *ngFor="let area of areas"-->
+    <!--          [ngClass]="{'tr__loader': area.codigo === areaEdit$.codigo}"  >-->
+    <!--        <td><span>{{ area.area }}</span></td>-->
+    <!--        <td><span>{{ area.buzamientoPromedio }}</span></td>-->
+    <!--        <td><span>{{ area.codigoGdb }}</span></td>-->
+    <!--        <td><span>{{ area.pozoDesviado }}</span></td>-->
+
+    <!--          <div class="table-action-center">-->
+    <!--            <a class="btn-secondary-app " >-->
+    <!--&lt;!&ndash;               (click)="_edit(area)">&ndash;&gt;-->
+    <!--              <i class="fas fa-edit"></i>-->
+    <!--            </a>-->
+
+    <!--            <a class="btn-cancel-app " >-->
+    <!--&lt;!&ndash;               (click)="_delete(area)">&ndash;&gt;-->
+    <!--              <i class="fas fa-trash"></i>-->
+    <!--            </a>-->
+    <!--          </div>-->
+
+
+
+
+    <tr >
+      <!--*ngIf="(areas$ | async)?.length === 0" >-->
+      <td colspan="99" class="text-center"><span>No hay registros</span></td>
+    </tr>
+    </tbody>
+  </table>
+
+
+  <!--    *ngIf="areas$ | async as areas " >-->
+
+  <!--      *ngIf="areasAux$ | async as areasAux ">-->
+  <app-paginado>
+    <!--        [items]="areas"-->
+    <!--        [itemsAux]="areasAux"-->
+    <!--        (itemsPaginado)="onItemsPaginado($event)"-->
+
+
+  </app-paginado>
+
+</div>
+
+

@@ -1,0 +1,43 @@
+<ng-container *ngIf="datosCarbonEdit$ | async as edit"  >
+  <div class="lh-sm" [ngClass]="{'loader': loading$  | async}">
+
+    <div class="app-info__container__data__detail">
+      <span class="app-info__container__data__detail__title">Muestrable</span>
+      <span class="app-info__container__data__detail__description">{{edit.muestreable}}</span>
+    </div>
+
+    <div class="app-info__container__data__detail">
+      <span class="app-info__container__data__detail__title">Desde</span>
+      <span class="app-info__container__data__detail__description">{{edit.desde}}</span>
+    </div>
+
+    <div class="app-info__container__data__detail">
+      <span class="app-info__container__data__detail__title">Hasta</span>
+      <span class="app-info__container__data__detail__description">{{edit.hasta}}</span>
+    </div>
+
+    <div class="app-info__container__data__detail">
+      <span class="app-info__container__data__detail__title">Manto de letra</span>
+      <span class="app-info__container__data__detail__description">{{edit.manto_Letra}} </span>
+    </div>
+
+    <div class="app-info__container__data__detail">
+      <span class="app-info__container__data__detail__title">Patron</span>
+      <span class="app-info__container__data__detail__description">{{edit.patron}} </span>
+    </div>
+
+    <div class="app-info__container__data__detail">
+      <span class="app-info__container__data__detail__title">Parasecuencia</span>
+      <span class="app-info__container__data__detail__description"> {{edit.codparasec}}</span>
+    </div>
+
+    <div class="app-info__container__data__detail">
+      <span class="app-info__container__data__detail__title">Nombre del Manto</span>
+      <span class="app-info__container__data__detail__description"> {{edit.nombre}}</span>
+    </div>
+
+  </div>
+</ng-container>
+
+
+

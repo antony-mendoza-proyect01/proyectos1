@@ -1,0 +1,82 @@
+@import "variables";
+@mixin size-input {
+  height: 3rem;
+  min-height: 3rem;
+  max-height: 3rem;
+}
+
+.group {
+  position: relative;
+  margin-bottom: $tamano-pagina;
+  width: 100%;
+  & label {
+    color: $color-text;
+    font-size: $font-size-secondary;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 12px;
+    top: 0.85rem;
+    margin-bottom: 0;
+    transition: $transition-time ease all;
+  }
+}
+textarea {
+  resize: none;
+}
+select{
+  appearance: auto !important;
+}
+
+@mixin form-template {
+  top: 0;
+  left: 6px;
+  padding: 0 6px 0 0;
+  font-weight: 500;
+}
+.ng-invalid{
+  @include form-template;
+}
+input,
+textarea,
+select{
+  &.form-control{
+    border-radius: $border-radius-input;
+    font-size: $font-size-primary;
+    @include size-input;
+    padding: 10px 6px 0;
+  }
+  &:focus {
+    outline: none !important;
+    border-color: $color-primary !important;
+    box-shadow: none !important;
+  }
+  &:focus ~ label,
+  &.ng-valid ~ label, &.is-invalid  ~  label{
+    @include form-template;
+  }
+  &:focus ~ .bar:before {
+    width: 100%;
+  }
+  &:focus ~ label{
+    color: $color-container-primary;
+    box-shadow: none!important;
+  }
+  &:invalid ~ label{
+    left: 12px !important;
+    color: $color-message-danger;
+  }
+}
+input[type="password"] {
+  letter-spacing: 0.3em;
+}
+.padding-page{
+  padding: $tamano-pagina !important;
+}
+.padding-page-y{
+  padding-top: $tamano-pagina !important;
+  padding-bottom: $tamano-pagina !important;
+}
+.input-group button{
+  @include size-input;
+}

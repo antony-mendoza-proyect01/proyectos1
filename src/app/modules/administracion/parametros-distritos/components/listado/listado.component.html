@@ -1,0 +1,48 @@
+<div class="table-responsive fixTableHead" >
+  <table class="table table-striped  table-bordered  table-sm mb-1 "
+         [ngClass]="{'table_loader': loading$ | async  }">
+    <thead>
+    <tr>
+      <th scope="col" sortable="codDto" (sort)="onSort($event)"><span>codigo</span></th>
+      <th scope="col" sortable="distrito" (sort)="onSort($event)"><span>distrito</span></th>
+      <th scope="col" class="text-center w-action"><span>Acciones</span></th>
+    </tr>
+
+    </thead>
+    <tbody>
+    <ng-container *ngIf="distritos$ | async as distritos">
+      <tr *ngFor="let distrito of  distritos"
+          [ngClass]="{'tr__loader': distrito.codDto === distritoEdit$.codDto}"  >
+        <td><span>{{ distrito.codDto }}</span></td>
+        <td><span>{{ distrito.distrito }}</span></td>
+
+        <td >
+          <div class="table-action-center">
+            <a class="btn-secondary-app " (click)="_edit(distrito)">
+              <i class="fas fa-edit "></i>
+            </a>
+            <a class="btn-cancel-app " (click)="_delete(distrito)">
+              <i class="fas fa-trash"></i>
+            </a>
+          </div>
+        </td>
+      </tr>
+    </ng-container>
+
+    <tr *ngIf="(distritos$ | async)?.length === 0" >
+      <td colspan="99" class="text-center"><span>No hay registros</span></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <ng-container *ngIf="distritos$ | async as distritos " >
+    <ng-container *ngIf="distritosAux$ | async as distritosAux ">
+      <app-paginado
+        [items]="distritos"
+        [itemsAux]="distritosAux"
+        (itemsPaginado)="onItemsPaginado($event)"></app-paginado>
+    </ng-container>
+  </ng-container>
+</div>
+
+

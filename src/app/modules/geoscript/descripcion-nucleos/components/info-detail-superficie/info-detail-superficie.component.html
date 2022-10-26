@@ -1,0 +1,65 @@
+<ng-container *ngIf="descripcionNucleosEdit$ | async as edit"  >
+  <div class="lh-sm "  [ngClass]="{'loader': loading$  | async}">
+
+    <div class="app-info__container__data__detail">
+      <span class="app-info__container__data__detail__title">Desde</span>
+      <div class="app-info__container__data__detail__description">{{edit.desde}}</div>
+    </div>
+
+    <div class="app-info__container__data__detail">
+      <span class="app-info__container__data__detail__title">Hasta</span>
+      <div class="app-info__container__data__detail__description">{{edit.hasta}}</div>
+    </div>
+
+    <div class="app-info__container__data__detail">
+      <span class="app-info__container__data__detail__title">Espesor</span>
+      <div class="app-info__container__data__detail__description">{{edit.hasta - edit.desde}}</div>
+    </div>
+
+    <div class="app-info__container__data__detail">
+      <span class="app-info__container__data__detail__title">Recuperado</span>
+      <div class="app-info__container__data__detail__description">{{edit.recuperado}}</div>
+    </div>
+
+    <div class="app-info__container__data__detail">
+      <span class="app-info__container__data__detail__title">% Recuperado</span>
+      <div class="app-info__container__data__detail__description">{{(edit.recuperado / (edit.hasta - edit.desde)) * 100 | number}}</div>
+    </div>
+
+    <div class="app-info__container__data__detail">
+      <span class="app-info__container__data__detail__title">Litologia</span>
+      <div class="app-info__container__data__detail__description">{{edit.litologia}}</div>
+    </div>
+
+    <div class="app-info__container__data__detail">
+      <span class="app-info__container__data__detail__title">Litofacie</span>
+      <div class="app-info__container__data__detail__description ">{{edit.litofacie}}
+        <button class="btn btn-secondary-app ms-1"
+                *ngIf="!(loading$  | async)"
+                routerLinkActive="active"
+                [routerLink]="urlDescripcionLitoface">
+        <span>Descripción litofacie</span></button>
+      </div>
+
+    </div>
+
+    <div class="app-info__container__data__detail">
+      <span class="app-info__container__data__detail__title">Origen Datos Descripción</span>
+      <div class="app-info__container__data__detail__description">{{edit.origen}}</div>
+    </div>
+
+    <div class="app-info__container__data__detail">
+      <span class="app-info__container__data__detail__title">Grado de Meteorización</span>
+      <div class="app-info__container__data__detail__description">{{edit.meteorizacion}}</div>
+    </div>
+
+    <div class="app-info__container__data__detail">
+      <span class="app-info__container__data__detail__title">Parasecuencia</span>
+      <div class="app-info__container__data__detail__description">{{edit.codparasec}}</div>
+    </div>
+
+  </div>
+</ng-container>
+
+
+

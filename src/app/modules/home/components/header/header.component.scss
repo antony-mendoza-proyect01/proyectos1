@@ -1,0 +1,154 @@
+@import "../../../../../scss/variables";
+.name-app:hover {
+  cursor: pointer;
+}
+.header {
+  height: $header-size;
+  background-color: $color-container;
+  border: none;
+  border-radius: 0;
+  padding-left: $tamano-pagina;
+  padding-right: $tamano-pagina;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  &-content, &-content__logo{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    height: 100%;
+    &__logo__title{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: $navigation-size;
+    }
+    &__logo__title__action{
+      padding: .5rem;
+      transition: all $transition-time;
+      border-radius: $border-radius-button;
+      color: $color-icono;
+      &:hover{
+        background-color:   $color-icono-hover;
+      }
+    }
+  }
+
+  &-content__complete{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    &__crumb, &__icon{
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      height: 100%;
+
+      &__container{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        height: 100%;
+
+        &__action{
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          margin:0 0.5rem;
+          padding: 0.3rem 0.5rem ;
+          border-radius: $border-radius-action;
+          border-bottom: 3px transparent;
+          transition: $transition-time ease all;
+          & span{
+            color: $color-container-primary-dark;
+            font-weight: 600;
+          }
+
+          &:hover{
+            background-color: $color-icono-hover;
+          }
+        }
+        &.active {
+          border-bottom: 3px solid $color-primary;
+          & span {
+            color: $color-primary;
+          }
+        }
+      }
+    }
+
+    &__toggle{
+      color: $color-icono;
+      display: none;
+
+      &:hover{
+        background-color:   $color-icono-hover;
+      }
+    }
+  }
+}
+
+
+
+@media (max-width: $breakpoint-tablet) {
+  .header {
+    &-content, &-content__logo{
+      &__logo__title{
+      }
+    }
+
+
+    &-content__complete{
+      justify-content: flex-end;
+      &__toggle{
+        display: initial;
+      }
+
+      &__crumb, &__icon{
+        display: none;
+      }
+    }
+  }
+
+  .hover{
+    margin-right: 0.5rem !important;
+  }
+
+
+  .active-header{
+    justify-content: flex-end;
+    margin-right: 1rem;
+    flex-direction: column;
+    align-items: flex-end;
+    height: initial;
+    position: absolute;
+    top: 12px;
+    transition: $transition-time ease all;
+    margin-bottom: 0.5rem;
+
+
+    .header-content__complete__crumb, .header-content__complete__icon{
+      display: flex !important;
+      flex-direction: column;
+      transition: $transition-time ease all;
+      background-color: white;
+      width: 100%;
+      z-index: 99;
+      a{
+        padding: 0.5rem;
+      }
+  }
+}
+
+}
+
+@media (max-width: $breakpoint-tel) {
+  //.header {
+  //  &-content, &-content__logo {
+  //    &__logo__title__action {
+  //      display: none;
+  //    }
+  //  }
+  //}
+}

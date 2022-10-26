@@ -1,0 +1,48 @@
+<div class="table-responsive fixTableHead" >
+  <table class="table table-striped table-bordered table-sm mb-1 "
+         [ngClass]="{'table_loader': loading$ | async  }">
+    <thead>
+    <tr>
+      <th scope="col" sortable="codCalificador" (sort)="onSort($event)"><span>codigo</span></th>
+      <th scope="col" sortable="caudal" (sort)="onSort($event)"><span>Caudal</span></th>
+      <th scope="col" class="text-center w-action"><span>Acciones</span></th>
+    </tr>
+
+    </thead>
+    <tbody>
+    <ng-container *ngIf="calificadores$ | async as calificadores">
+      <tr *ngFor="let calificador of  calificadores"
+          [ngClass]="{'tr__loader': calificador.codCalificador === calificadorEdit$.codCalificador}"  >
+        <td><span>{{ calificador.codCalificador }}</span></td>
+        <td><span>{{ calificador.calificador }}</span></td>
+
+        <td >
+          <div class="table-action-center">
+            <a class="btn-secondary-app " (click)="_edit(calificador)">
+              <i class="fas fa-edit "></i>
+            </a>
+            <a class="btn-cancel-app " (click)="_delete(calificador)">
+              <i class="fas fa-trash"></i>
+            </a>
+          </div>
+        </td>
+      </tr>
+    </ng-container>
+
+    <tr *ngIf="(calificadores$ | async)?.length === 0" >
+      <td colspan="99" class="text-center"><span>No hay registros</span></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <ng-container *ngIf="calificadores$ | async as calificadores " >
+    <ng-container *ngIf="calificadoresAux$ | async as calificadoresAux ">
+      <app-paginado
+        [items]="calificadores"
+        [itemsAux]="calificadoresAux"
+        (itemsPaginado)="onItemsPaginado($event)"></app-paginado>
+    </ng-container>
+  </ng-container>
+</div>
+
+

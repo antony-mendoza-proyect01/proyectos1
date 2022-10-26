@@ -1,0 +1,69 @@
+<ng-container *ngIf="descripcionRipiosEdit$ | async as edit"  >
+  <div class="lh-sm "  [ngClass]="{'loader': loading$  | async}">
+
+    <div class="app-info__container__data__detail">
+      <span class="app-info__container__data__detail__title">Desde</span>
+      <div class="app-info__container__data__detail__description">{{edit.desde}}</div>
+    </div>
+
+    <div class="app-info__container__data__detail">
+      <span class="app-info__container__data__detail__title">Hasta</span>
+      <div class="app-info__container__data__detail__description">{{edit.hasta}}</div>
+    </div>
+
+    <div class="app-info__container__data__detail">
+      <span class="app-info__container__data__detail__title">Espesor</span>
+      <div class="app-info__container__data__detail__description">{{edit.hasta - edit.desde}}</div>
+    </div>
+
+    <div class="app-info__container__data__detail">
+      <span class="app-info__container__data__detail__title">Litologia</span>
+      <div class="app-info__container__data__detail__description">{{edit.litologia}}</div>
+    </div>
+
+    <div class="app-info__container__data__detail">
+      <span class="app-info__container__data__detail__title">Origen Datos Descripción</span>
+      <div class="app-info__container__data__detail__description">{{edit.origendatos}}</div>
+    </div>
+
+    <div class="app-info__container__data__detail">
+      <span class="app-info__container__data__detail__title">Grado de Meteorización</span>
+      <div class="app-info__container__data__detail__description">{{edit.meteorizacion}}</div>
+    </div>
+
+    <div class="app-info__container__data__detail">
+      <span class="app-info__container__data__detail__title">Calificador 1 </span>
+      <div class="app-info__container__data__detail__description">{{edit.calificador1}}</div>
+    </div>
+
+    <div class="app-info__container__data__detail">
+      <span class="app-info__container__data__detail__title">Calificador 2 </span>
+      <div class="app-info__container__data__detail__description">{{edit.calificador2}}</div>
+    </div>
+
+    <div class="app-info__container__data__detail">
+      <span class="app-info__container__data__detail__title">Calificador 3 </span>
+      <div class="app-info__container__data__detail__description">{{edit.calificador3}}</div>
+    </div>
+
+    <div class="app-info__container__data__detail">
+      <span class="app-info__container__data__detail__title">Tono</span>
+      <div class="app-info__container__data__detail__description">{{edit.tono}}</div>
+    </div>
+
+    <div class="app-info__container__data__detail">
+      <span class="app-info__container__data__detail__title">Color</span>
+      <div class="app-info__container__data__detail__description">{{edit.color}}</div>
+    </div>
+
+    <div class="app-info__container__data__detail">
+      <span class="app-info__container__data__detail__title">Grano</span>
+      <div class="app-info__container__data__detail__description">{{edit.grano}}</div>
+    </div>
+
+
+  </div>
+</ng-container>
+
+
+

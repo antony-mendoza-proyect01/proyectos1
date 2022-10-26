@@ -1,0 +1,117 @@
+@import "variables";
+
+// colors
+.c-t-gray{
+  color: $color-text-gray !important;
+}
+.c-t-gray-light{
+  color: $color-text-gray-light !important;
+}
+.c-t-primary{
+  color: $color-text !important;
+}
+
+.c-t-secondary{
+  color: $color-text-secondary !important;
+}
+.c-primary{
+  color: $color-primary !important;
+}
+.c-secondary{
+  color: $color-secondary !important;
+}
+.c-icono{
+  color: $color-icono !important;
+}
+.c-disabled{
+  color: $color-disabled !important;
+}
+
+// background-color
+.bg-c-panel {
+  background-color: $color-panel;
+}
+.bg-c-gray{
+  background-color: $color-text-gray !important;
+}
+.bg-c-gray-light{
+  background-color: $color-text-gray-light !important;
+}
+.bg-c-container-primary-dark{
+  background-color: $color-container-primary-dark !important;
+}
+.bg-c-container-primary{
+  background-color: $color-container-primary !important;
+}
+.bg-c-container{
+  background-color:$color-container!important;
+}
+
+.c-text{
+  color: $color-text;
+}
+.c-light {
+  color: $color-icono;
+}
+.c-success {
+  color: $color-success;
+}
+.c-warning {
+  color: $color-warning;
+}
+.c-info {
+  color: $color-info;
+}
+.c-danger {
+  color: $color-danger;
+}
+
+.badge{
+  padding:$tamano-pagina $tamano-pagina-complete ;
+  border-radius: $border-radius;
+  font-size: 1rem;
+  box-shadow: 0 0.1rem 0.3rem rgba(0, 0, 0, 0.03) !important;
+}
+
+.badge-success {
+  color: $color-success;
+  background-color: $color-bg-success;
+}
+.badge-info {
+  color: $color-info;
+  background-color: $color-bg-info;
+}
+.badge-danger {
+  color: $color-danger;
+  background-color: $color-bg-danger;
+}
+.badge-warning {
+  color: $color-warning;
+  background-color: $color-bg-warning;
+}
+
+
+//bg-toast
+.toast-success, .alert-success{
+  background-color: $bg-color-message-success !important;
+  border-left: 0.5rem solid $color-message-success !important;
+  color: $color-message-success !important;
+}
+.toast-warning, .alert-warning{
+  background-color: $bg-color-message-warming !important;
+  border-left: 0.5rem solid $color-message-warming !important;
+  color: $color-message-warming !important;
+}
+.toast-info, .alert-info {
+  background-color: $bg-color-message-info !important;
+  border-left: 0.5rem solid $color-message-info !important;
+  color: $color-message-info !important;
+}
+.toast-danger, .alert-danger {
+  background-color: $bg-color-message-danger !important;
+  border-left: 0.5rem solid $color-message-danger !important;
+  color: $color-message-danger !important;
+}
+.bg-info-app{
+  background-color: $bg-color-message-info !important;
+}

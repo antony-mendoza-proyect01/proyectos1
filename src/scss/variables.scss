@@ -1,0 +1,67 @@
+// aplication
+$border-radius: 1rem;
+$border-radius-input: 6px;
+$border-radius-button: 9999px;
+$transition-time: 300ms;
+$font-size-primary: 1rem;
+$font-size-secondary: 14px;
+$navigation-a-padding-x: 0.5rem;
+$navigation-a-padding-y: 0.5rem;
+$size-input-button: 32px;
+// colores app
+$color-panel: #f1f5f9;
+$color-container: #ffffff;
+$color-container-panel: rgb(248, 248, 248);
+$color-container-primary-dark:  #0f172a;
+$color-container-primary: #1e293b;
+$color-primary: #2196f3;
+$color-primary-hover: #17669e;
+$color-secondary: rgba(33, 150, 243, 0.85);
+$color-disabled: #c3c3c3;
+$color-icono: #64748b;
+$color-icono-hover:  rgb(148 163 184 / 0.2);
+$color-border: #ced4da;
+$color-cancel-hover: #f6f6f6;
+// colores texto
+$color-text-primary: #FFFFFF;
+$color-text-gray: #f1f5f9;
+$color-text-gray-light: #f1f5f9;
+$color-text: rgb(30, 41, 59);
+$color-text-secondary: #636366;
+// tamaños
+$header-size: 3.5rem;
+$navigation-size: 230px;
+$tamano-pagina: 0.5rem;
+$tamano-pagina-complete: 1rem;
+/*mediaquery*/
+$extra-large: 1200px;
+$breakpoint-tablet: 768px;
+$breakpoint-tel: 425px;
+$breakpoint-tel-medium: 350px;
+$breakpoint-tel-min: 320px;
+$gray-dark-rgb: rgba(110, 110, 110, 0.51);/* color sombra  */
+$border-radius-action: .414rem;
+
+// colores
+$color-success: #15803d;
+$color-bg-success: #f0fdf4;
+
+$color-warning: #b45309;
+$color-bg-warning: #fffbeb;
+
+$color-info:  #1d4ed8;
+$color-bg-info:  #eff6ff;
+
+$color-danger:  #b91c1c;
+$color-bg-danger:  #fef2f2;
+
+
+$color-regla: #000000;
+$color-message-success: rgb(22,101,52);
+$bg-color-message-success: rgb(220, 252,231);
+$color-message-warming:rgb(146,64,14);
+$bg-color-message-warming:  rgb(254,243,199);
+$color-message-info:rgb(30,64,175);
+$bg-color-message-info:   rgb(219,234,254);
+$color-message-danger: rgb(157,23,77);
+$bg-color-message-danger: rgb(252,231,243);

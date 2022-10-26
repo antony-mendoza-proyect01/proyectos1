@@ -1,0 +1,262 @@
+<div class="grafica "
+      [ngClass]="{'loader-div': loading$  | async}">
+
+  <div class="grafica-container-grafica"
+       [id]="ID_GRAFICA">
+
+    <div class="grafica-container-grafica-1" >
+
+      <div class="card"  >
+
+        <div class="card-header card-header-container">
+          <div class="card-header-container__title">
+            <p class="m-0 fw-bold text-uppercase">Seudopozo desviado</p>
+          </div>
+
+          <div class="card-header-container__acccions">
+          </div>
+        </div>
+
+
+        <div  *ngIf="!(loading$  | async)"  class="card-body " >
+
+          <div class="app-info ">
+
+
+            <div class="app-info__container"  >
+
+              <div class="app-info__container__pozo">
+              <span class="fs-secondary-minus position-absolute"
+                    [ngStyle]="{'left': '-' + (4 + 5) + '0px'}">Manto</span>
+
+                <span class="fs-secondary-minus position-absolute"
+                      [ngStyle]="{'left': '-' + (3) + '0px'}">Prof.</span>
+
+                <ng-container *ngIf="seudopozoList$ | async as seudopozoList">
+                  <ng-container *ngIf="finalNucleos$ | async as finalNucleos">
+                    <div [ngStyle]="{'height': finalNucleos + ID_SEUDOPOZO_LONGUITUD +'rem'}">
+
+                      <ng-container *ngFor="let d of seudopozoList">
+                        <figure
+                          (click)="select(d)"
+                          [id]="ID_SEUDOPOZO + d.posicion"
+                          [ngClass]="{'active-impresion-seudopozo': d.posicion === seudopozoEdit$.posicion}"
+                          [style.background-color]="'rgb(0,0,0)'"
+                          [ngStyle]="{'height': d.hasta_desviado - d.desde_desviado + 'rem',
+                                'top': d.desde_desviado + 'rem'}">
+                        </figure>
+
+                        <span [ngStyle]="{'top':( d.desde_desviado - 0.7) + 'rem',
+                      'left': '-' + (d.desde_desviado.toString().length - 1) + '0px'}">{{d.desde_desviado}}</span>
+
+
+                        <span [ngStyle]="{'top':
+                        ((d.hasta_desviado - d.desde_desviado) / 2) + d.desde_desviado  -  0.7 + 'rem',
+                      'left': '-' + (d.desde_desviado.toString().length + 4) + '0px'}">{{d.manto}}</span>
+
+                        <span [ngStyle]="{'top':( d.hasta_desviado  - 0.7) + 'rem',
+                      'left': '-' + (d.hasta_desviado.toString().length - 1) + '0px'}">{{d.hasta_desviado}}</span>
+                      </ng-container>
+
+
+                    </div>
+                  </ng-container>
+                </ng-container>
+
+              </div>
+
+              <div class="app-info__container__regla"
+                   *ngIf="!(loading$  | async)">
+                <ng-container *ngIf="reglaLength$ | async as reglaLength " >
+                  <div class="app-info__container__regla__info"
+                       [ngStyle]="{'top': r.altura + 'rem'}"
+                       *ngFor="let r of reglaLength" >
+                    <span >{{r.altura}}</span>
+                  </div>
+                </ng-container>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="grafica-container-grafica-2">
+      <div class="card "  >
+
+        <div class="card-header card-header-container">
+          <div class="card-header-container__title">
+            <p class="m-0 fw-bold text-uppercase">Segun perforación</p>
+          </div>
+
+          <div class="card-header-container__acccions">
+          </div>
+        </div>
+
+        <div  *ngIf="!(loading$  | async)"  class="card-body " >
+
+          <div class="app-info ">
+
+            <div class="app-info__container" *ngIf="finalNucleos$ | async as finalNucleos" >
+
+
+              <div class="app-info__container__pozo"
+                   [ngStyle]="{'height': finalNucleos + ID_SEUDOPOZO_LONGUITUD +'rem'}">
+
+              </div>
+
+
+              <div class="app-info__container__regla"
+                   *ngIf="!(loading$  | async)">
+                <ng-container *ngIf="reglaLength$ | async as reglaLength " >
+
+                  <ng-container *ngIf="finalNucleos$ | async as finalNucleos">
+                    <div [ngStyle]="{'height': finalNucleos + ID_SEUDOPOZO_LONGUITUD +'rem'}">
+
+                      <div class="app-info__container__regla__info"
+                           [ngStyle]="{'top': r.altura + 'rem'}"
+                           *ngFor="let r of reglaLength" >
+                        <span >{{r.altura}}</span>
+                      </div>
+
+                    </div>
+                  </ng-container>
+
+                </ng-container>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+    <div class="grafica-container-grafica-3">
+      <div class="card"  >
+
+
+        <div class="card-header card-header-container">
+          <div class="card-header-container__title">
+            <p class="m-0 fw-bold text-uppercase">Segun registro</p>
+          </div>
+
+          <div class="card-header-container__acccions">
+          </div>
+        </div>
+
+        <div  *ngIf="!(loading$  | async)"  class="card-body " >
+
+          <div class="app-info ">
+
+            <div class="app-info__container"  *ngIf="finalNucleos$ | async as finalNucleos" >
+
+              <div class="app-info__container__pozo"
+                   [ngStyle]="{'height': finalNucleos + ID_SEUDOPOZO_LONGUITUD +'rem'}">
+
+              </div>
+
+              <div class="app-info__container__regla"
+                   *ngIf="!(loading$  | async)">
+                <ng-container *ngIf="reglaLength$ | async as reglaLength " >
+
+                  <ng-container *ngIf="finalNucleos$ | async as finalNucleos">
+                    <div [ngStyle]="{'height': finalNucleos + ID_SEUDOPOZO_LONGUITUD +'rem'}">
+
+                      <div class="app-info__container__regla__info"
+                           [ngStyle]="{'top': r.altura + 'rem'}"
+                           *ngFor="let r of reglaLength" >
+                        <span >{{r.altura}}</span>
+                      </div>
+
+                    </div>
+                  </ng-container>
+
+                </ng-container>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <div class="grafica-container-edit">
+
+    <div class="grafica-container-pdf-edit  c-sticky-info c-sticky-info-detail">
+      <div class="card ">
+
+        <ng-container *ngIf="!(loading$  | async)" >
+
+          <div class="card-header card-header-container">
+            <div class="card-header-container__title">
+              <p class="m-0 fw-bold text-uppercase">Detalle</p>
+            </div>
+
+            <div class="card-header-container__acccions">
+            </div>
+          </div>
+
+          <div class="card-body">
+            <div class="app-info">
+              <div class="app-info__container">
+                <div class="app-info__container__data ">
+
+                  <app-info-detail></app-info-detail>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-footer d-flex flex-column"  >
+
+            <div class="d-flex  gap-1 justify-content-center ">
+
+              <button class="btn btn-secondary-app "
+                      (click)="previousAllPosicion()">
+                <i class="fa-solid fa-angles-left t-fs-secondary"></i></button>
+
+              <button class="btn btn-secondary-app "
+                      (click)="previousPosicion()"><i class="fa-solid fa-angle-left t-fs-secondary"></i></button>
+
+              <button class="btn btn-secondary-app "
+                      (click)="nextPosicion()"><i class="fa-solid fa-angle-right t-fs-secondary"></i></button>
+
+              <button class="btn btn-secondary-app "
+                      *ngIf="seudopozoList$ | async as seudopozoLis "
+                      (click)="nextAllPosicion(seudopozoLis.length)">
+                <i class="fa-solid fa-angles-right t-fs-secondary"></i></button>
+
+
+            </div>
+
+          </div>
+        </ng-container>
+
+      </div>
+    </div>
+
+  </div>
+
+
+
+</div>
+
+
+

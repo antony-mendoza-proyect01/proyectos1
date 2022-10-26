@@ -1,0 +1,33 @@
+@import "variables";
+.a-navigation{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding:  $navigation-a-padding-y - 0.1;
+  margin: 0 $navigation-a-padding-y - 0.1 0.2rem $navigation-a-padding-y;
+  font-size: $font-size-primary;
+  color: $color-text-primary;
+  opacity: .7;
+  font-weight: 400;
+  border-radius: $border-radius-input;
+  min-height: 35px;
+  line-height: 1;
+
+  &:hover, &.active, &.activeUrl {
+    color: $color-text-primary;
+    background-color: $color-icono-hover;
+    opacity: 1;
+  }
+
+  i{
+    display: flex;
+    align-items: center;
+    min-width: 20px;
+    min-height: 20px;
+    font-size: $font-size-secondary;
+  }
+
+  span {
+    font-size: $font-size-secondary;
+  }
+}

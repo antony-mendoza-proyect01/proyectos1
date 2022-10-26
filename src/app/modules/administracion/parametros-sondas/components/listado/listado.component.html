@@ -1,0 +1,56 @@
+<div class="table-responsive fixTableHead" >
+  <table class="table table-striped  table-bordered  table-sm mb-1 "
+         [ngClass]="{'table_loader': loading$ | async  }">
+    <thead>
+    <tr>
+      <th scope="col" sortable="id" (sort)="onSort($event)"><span>Codigo</span></th>
+      <th scope="col" sortable="nombre" (sort)="onSort($event)"><span>Nombre</span></th>
+      <th scope="col" sortable="archivoOrigen" (sort)="onSort($event)"><span>Archivo Origen</span></th>
+      <th scope="col" sortable="constante" (sort)="onSort($event)" ><span> Constante</span></th>
+      <th scope="col" sortable="cierre" (sort)="onSort($event)" ><span> Cierre</span></th>
+      <th scope="col" sortable="cverticalidad" (sort)="onSort($event)" ><span> cverticalidad</span></th>
+      <th scope="col" class="text-center w-action"><span>Acciones</span></th>
+    </tr>
+    </thead>
+    <tbody>
+    <ng-container *ngIf="sondas$ | async as sondas">
+      <tr *ngFor="let sonda of sondas"
+          [ngClass]="{'tr__loader': sonda.id === sondaEdit$.id}"  >
+        <td><span>{{ sonda.id }}</span></td>
+        <td><span>{{ sonda.nombre }}</span></td>
+        <td><span>{{ sonda.archivoOrigen }}</span></td>
+        <td><span>{{ sonda.constante }}</span></td>
+        <td><span>{{ sonda.cierre }}</span></td>
+        <td><span>{{ sonda.cverticalidad }}</span></td>
+        <td >
+          <div class="table-action-center">
+            <a class="btn-secondary-app " (click)="_edit(sonda)">
+              <i class="fas fa-edit  "></i>
+            </a>
+
+            <a class="btn-cancel-app " (click)="_delete(sonda)">
+              <i class="fas fa-trash"></i>
+            </a>
+          </div>
+
+        </td>
+      </tr>
+    </ng-container>
+
+    <tr *ngIf="(sondas$ | async)?.length === 0" >
+      <td colspan="99" class="text-center"><span>No hay registros</span></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <ng-container *ngIf="sondas$ | async as sondas " >
+    <ng-container *ngIf="sondasAux$ | async as sondasAux ">
+      <app-paginado
+        [items]="sondas"
+        [itemsAux]="sondasAux"
+        (itemsPaginado)="onItemsPaginado($event)"></app-paginado>
+    </ng-container>
+  </ng-container>
+</div>
+
+

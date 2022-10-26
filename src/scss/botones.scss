@@ -1,0 +1,123 @@
+@import "variables";
+.btn i{
+  margin-top: 0.6px;
+}
+.btn-primary-app, .btn-secondary-app,
+.btn-cancel-app, .btn-icono, .btn-info-app{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: $border-radius-button;
+  transition: $transition-time ease all;
+  font-size: $font-size-primary;
+  padding: 0.1rem 1rem;
+  min-height: $size-input-button;
+  line-height: 1;
+
+  &:hover {
+    //box-shadow: 0 0.1rem 0.3rem rgba(137, 137, 137, 0.47) !important;
+  }
+}
+.btn-primary-app {
+  color: $color-text-primary;
+  background-color: $color-primary;
+
+  &:hover {
+    color: $color-text-primary!important;
+    background-color: $color-primary-hover!important;
+  }
+}
+.btn-primary-app-loading{
+  box-shadow: none !important;
+}
+.btn:disabled, .btn-primary-app-loading {
+  cursor: not-allowed !important;
+  pointer-events: auto !important;
+  &:hover{
+    box-shadow: none !important;
+  }
+}
+.btn-secondary-app {
+  color: $color-text-secondary;
+  background-color: white;
+  border: 1px solid $color-border;
+
+  &:hover  {
+    color: $color-text!important;
+    background-color: $color-border !important;
+  }
+
+  &.active {
+    color: $color-text-primary!important;
+    background-color: $color-container-primary-dark !important;
+  }
+}
+
+.btn-cancel-app {
+  color: $color-text-secondary;
+  background-color: $color-container;
+  border: 1px solid $color-border;
+
+  &:hover{
+    color: $color-text!important;
+    background-color: $color-border !important;
+  }
+  &.active {
+    color: $color-container!important;
+    background-color: $color-container-primary-dark !important;
+  }
+}
+
+.btn-info-app {
+  color: $color-text-secondary;
+  border: 1px solid $gray-dark-rgb;
+
+  &:hover {
+    color: $color-text-primary !important;
+    background-color: $color-container-primary!important;
+    border: 1px solid $color-container-primary!important;
+  }
+}
+
+.btn-icono {
+  color: $color-icono;
+  padding: 0.4rem 0.7rem !important;
+
+  &:hover, &.active {
+    background-color: $color-icono-hover;
+    box-shadow: none !important;
+  }
+}
+
+.btn:disabled{
+  color: $color-text;
+  background-color: $color-disabled;
+  border: 1px transparent;
+}
+.table-action-center {
+  & .btn-primary-app, .btn-secondary-app, .btn-cancel-app, .btn-icono, .btn-info-app {
+    height: initial !important;
+    min-height: initial !important;
+    max-height: initial !important;
+    background-color: $color-container;
+  }
+}
+.modal-header {
+  border-top-right-radius: $border-radius;
+  border-top-left-radius: $border-radius;
+  background-color: $color-container-panel;
+  a {
+    background-color: $color-container-panel;
+  }
+}
+.modal-footer {
+  background-color: $color-container-panel;
+  border-bottom-right-radius: $border-radius;
+  border-bottom-left-radius: $border-radius;
+  .btn-cancel-app{
+    border: none;
+    color: $color-text;
+    background-color: $color-container-panel;
+  }
+}

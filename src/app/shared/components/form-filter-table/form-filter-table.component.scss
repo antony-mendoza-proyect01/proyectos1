@@ -1,0 +1,12 @@
+@import "../../../../scss/variables";
+.input-group-text{
+  border-top-left-radius: $border-radius-button;
+  border-bottom-left-radius: $border-radius-button;
+}
+.form-control{
+  border-top-right-radius: $border-radius-button;
+  border-bottom-right-radius: $border-radius-button;
+  height: $size-input-button;
+  min-height: $size-input-button;
+  max-height: $size-input-button;
+}

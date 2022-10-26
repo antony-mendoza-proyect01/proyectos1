@@ -1,0 +1,15 @@
+@import "../../../../../../scss/variables";
+
+.app-info__container__data__title {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  span{
+    font-weight: bold;
+  }
+
+}
+span{
+  font-size: $font-size-secondary;
+}

@@ -1,0 +1,28 @@
+@import "../../../scss/variables";
+
+.border-image{
+  border-top-left-radius: $border-radius;
+  border-bottom-left-radius: $border-radius;
+}
+
+.container-tel-login{
+  width: 10rem;
+  padding : 6rem;
+
+}
+// media QueryList
+@media (max-width: $breakpoint-tel) {
+  .container-tel{
+    flex-direction: column !important;
+    flex: initial !important;
+
+    &-view {
+      height: auto !important;
+    }
+    &-login{
+      justify-content: flex-start !important;
+      width: 100% !important;
+      padding : 3rem;
+    }
+  }
+}

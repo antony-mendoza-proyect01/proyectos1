@@ -1,0 +1,163 @@
+<div class="grafica " [ngClass]="{'loader-div': loading$  | async}">
+
+  <div class="grafica-container" id="grafica-container">
+    <div class="card"  >
+
+      <div  *ngIf="!(loading$  | async)"  class="card-body" >
+
+        <div class="app-info ">
+
+          <div class="app-info__container"  >
+
+            <div class="app-info__container__intervalo">
+
+              <ng-container *ngIf="superficies$ | async as superficies " >
+                <ng-container *ngFor="let s of superficies" >
+                  <div class="app-info__container__intervalo__linea"
+                        [ngStyle]="{'top': s.profundidad + 1 +'rem'}"
+                        [style.background-color]="'rgb(' + s.r + ',' + s.g + ',' + s.b +')'"
+                  ></div>
+
+                  <div class="app-info__container__intervalo__info"
+                        [ngStyle]="{'top': s.profundidad + 1 +'rem'}">
+                    <div class="app-info__container__intervalo__info__profundidad">
+                      <span>{{s.profundidad}}</span>
+                      <span>{{s.nombre}}</span>
+                    </div>
+                  </div>
+                </ng-container>
+              </ng-container>
+
+            </div>
+
+            <div class="app-info__container__pozo">
+
+              <ng-container *ngIf="descripcionNucleos$ | async as descripcionNucleos">
+                <ng-container *ngIf="intervalos$ | async as intervalos">
+                  <ng-container *ngIf="finalNucleos$ | async as finalNucleos">
+                    <div [ngStyle]="{'height': finalNucleos + ID_LONGUITUD +'rem'}">
+                      <figure *ngFor="let d of descripcionNucleos"
+                              (click)="selectDescripcion(d)"
+                              [id]="ID_NUCLEOS + d.codnucleo"
+                              [ngClass]="{'active-descripcion-nucleos': d.codnucleo === descripcionNucleosEdit$.codnucleo}"
+                              [style.background-color]="'rgb(' + d.r + ',' + d.g + ',' + d.b +')'"
+                              [ngStyle]="
+                                {'height': d.hasta - d.desde + 'rem',
+                                'top': d.desde + 'rem'}">
+                      </figure>
+
+                      <figure *ngFor="let i of intervalos"
+                              [ngStyle]="
+                                {'height': i.hasta - i.desde + 'rem',
+                                'top': i.desde + 'rem'}">
+                      </figure>
+                    </div>
+                  </ng-container>
+                </ng-container>
+              </ng-container>
+
+            </div>
+
+            <div class="app-info__container__regla"
+                 *ngIf="!(loading$  | async)">
+              <ng-container *ngIf="reglaLength$ | async as reglaLength " >
+                <div class="app-info__container__regla__info"
+                      [ngStyle]="{'top': r.altura + 'rem'}"
+                     *ngFor="let r of reglaLength" >
+                  <span >{{r.altura}}</span>
+                </div>
+              </ng-container>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <div class="grafica-edit ">
+    <div class="card c-sticky-info">
+
+      <ng-container *ngIf="!(loading$  | async)" >
+        <div class="card-header card-header-container">
+          <div class="card-header-container__title">
+            <p class="m-0 fw-bold text-uppercase">Detalle del Nucleo</p>
+          </div>
+
+          <div class="card-header-container__acccions">
+            <button class="btn btn-secondary-app">
+              <i class="fas  fa-edit "></i><span>Editar</span></button>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <div class="app-info">
+            <div class="app-info__container">
+              <div class="app-info__container__data ">
+
+                <app-info-detail-superficie></app-info-detail-superficie>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="d-flex flex-column gap-2 justify-content-center mt-2">
+            <button class="btn btn-secondary-app "
+                    routerLinkActive="active"
+                    [routerLink]="urlCaracteristicasSedimentaria">
+              <span class="t-fs-secondary">Caracteristicas Sedimentarias</span></button>
+
+            <button class="btn btn-secondary-app "
+                    routerLinkActive="active"
+                    [routerLink]="urlCaracteristicasTectonicas">
+              <span class="t-fs-secondary">Caracteristicas Tectonicas</span></button>
+          </div>
+
+        </div>
+
+        <div class="card-footer d-flex flex-column"  >
+
+          <div class="d-flex  gap-1 justify-content-center ">
+
+            <button class="btn btn-secondary-app "
+                    (click)="previousAllPosicion()">
+              <i class="fa-solid fa-angles-left t-fs-secondary"></i></button>
+
+            <button class="btn btn-secondary-app "
+                    (click)="previousPosicion()"><i class="fa-solid fa-angle-left t-fs-secondary"></i></button>
+
+            <button class="btn btn-secondary-app "
+                    (click)="nextPosicion()"><i class="fa-solid fa-angle-right t-fs-secondary"></i></button>
+
+            <button class="btn btn-secondary-app "
+                    *ngIf="descripcionNucleos$ | async as descripcionNucleos "
+                    (click)="nextAllPosicion(descripcionNucleos.length)">
+              <i class="fa-solid fa-angles-right t-fs-secondary"></i></button>
+
+            <button class="btn btn-secondary-app ">
+              <span class="t-fs-secondary">Finalizar</span></button>
+
+          </div>
+
+        </div>
+      </ng-container>
+
+    </div>
+  </div>
+
+  <div class="grafica-router ">
+    <ng-container  *ngIf="!(loading$  | async)">
+      <router-outlet></router-outlet>
+    </ng-container>
+  </div>
+
+</div>
+
+
+

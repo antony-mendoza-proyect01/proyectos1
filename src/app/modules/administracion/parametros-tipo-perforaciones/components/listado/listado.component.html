@@ -1,0 +1,48 @@
+<div class="table-responsive fixTableHead" >
+  <table class="table table-striped  table-bordered  table-sm mb-1 "
+         [ngClass]="{'table_loader': loading$ | async  }">
+    <thead>
+    <tr>
+      <th scope="col" sortable="codTipoPerforacion" (sort)="onSort($event)"><span>codigo</span></th>
+      <th scope="col" sortable="perforacion" (sort)="onSort($event)"><span> perforacion</span></th>
+      <th scope="col" class="text-center w-action"><span>Acciones</span></th>
+    </tr>
+    </thead>
+    <tbody>
+    <ng-container *ngIf="perforaciones$ | async as perforaciones">
+      <tr *ngFor="let perforacion of perforaciones"
+          [ngClass]="{'tr__loader': perforacion.codTipoPerforacion === perforacionEdit$.codTipoPerforacion}"  >
+        <td><span>{{ perforacion.codTipoPerforacion }}</span></td>
+        <td><span>{{ perforacion.perforacion }}</span></td>
+        <td >
+          <div class="table-action-center">
+            <a class="btn-secondary-app " (click)="_edit(perforacion)">
+              <i class="fas fa-edit  "></i>
+            </a>
+
+            <a class="btn-cancel-app " (click)="_delete(perforacion)">
+              <i class="fas fa-trash"></i>
+            </a>
+          </div>
+
+        </td>
+      </tr>
+    </ng-container>
+
+    <tr *ngIf="(perforaciones$ | async)?.length === 0" >
+      <td colspan="99" class="text-center"><span>No hay registros</span></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <ng-container *ngIf="perforaciones$ | async as perforaciones " >
+    <ng-container *ngIf="perforacionesAux$ | async as perforacionesAux ">
+      <app-paginado
+        [items]="perforaciones"
+        [itemsAux]="perforacionesAux"
+        (itemsPaginado)="onItemsPaginado($event)"></app-paginado>
+    </ng-container>
+  </ng-container>
+</div>
+
+

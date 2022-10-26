@@ -1,0 +1,64 @@
+<header class="header  ">
+  <div class="header-content">
+    <div class="header-content__logo">
+      <div class="header-content__logo__title">
+        <div class="text-center w-100">
+          <h2 class="fw-bold c-t-primary name-app"
+              [routerLink]="urlHome">{{nombreApp}}</h2>
+        </div>
+
+        <a class="header-content__logo__title__action btn-icono" (click)="toggle()">
+          <i class="fas fa-bars "></i>
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="header-content__complete"  [ngClass]="{'active-header': isCollapsedHeader}">
+
+      <a class="header-content__complete__toggle  btn-icono mx-3" (click)="toggleHeader()">
+        <i class="fas fa-solid fa-gears "></i>
+      </a>
+
+
+      <div class="header-content__complete__crumb ml-3">
+
+
+        <a class="header-content__complete__crumb__container"
+           [routerLink]="n.link"
+           (click)="_activarMenu(n)"
+           routerLinkActive="active"
+           *ngFor="let n of navigationAplicacion">
+          <div class="header-content__complete__crumb__container__action">
+            <span>{{n.titulo}}</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="header-content__complete__icon">
+
+        <div ngbDropdown class="d-inline-block">
+          <button type="button"
+                  class="btn btn-icono"
+                  id="dropdownBasic1" ngbDropdownToggle>
+            <i class="fas fa-user"></i>
+          </button>
+          <div ngbDropdownMenu
+               aria-labelledby="dropdownBasic1">
+            <button ngbDropdownItem (click)="cerrarSesion()">{{user?.username}}</button>
+            <div class="dropdown-divider"></div>
+            <button ngbDropdownItem (click)="cerrarSesion()">Cerrar sesión</button>
+          </div>
+        </div>
+
+
+
+      </div>
+
+    </div>
+
+
+  </div>
+</header>

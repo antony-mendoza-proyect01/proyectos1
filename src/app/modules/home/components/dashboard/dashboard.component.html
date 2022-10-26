@@ -1,0 +1,27 @@
+<div id="content">
+  <app-header class="header-fixed"
+              [active]="active"
+              [user]="user"
+              [navigationAplicacion]="navigationAplicacion"
+              (activarMenu)="onActivarMenu($event)"
+              (activeEvent)="_activeEvent($event)"
+  ></app-header>
+
+  <div class="content-page content-page-dashboard" >
+    <!------ Init, navigation ------>
+    <nav id="sidebar" [ngClass]="{'active': active}">
+      <app-navigation-list [navigations]="navigations"></app-navigation-list>
+    </nav>
+    <!------ End, navigation ------>
+
+    <!------ Init, Router Content ------>
+    <div class="container-fluid container-fluid-dashboard">
+      <div class="content-router">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+    <!------ Init, Router Content ------>
+  </div>
+
+
+</div>

@@ -1,0 +1,64 @@
+<div class="card-body p-2 ">
+
+  <div class="container-fluid px-1">
+    <div class="row">
+      <div class="col-sm-3">
+
+        <form [formGroup]="selectPozoForm" #formDir="ngForm" >
+          <div class="form-group group">
+            <select class="form-control input"
+                    (change)="change()"
+                    [routerLink]= "urlContrato"
+                    formControlName="selected">
+              <option *ngFor="let t of tipopozos$ | async" [value]="t.codigo">{{ t.codigo}}</option>
+            </select>
+            <label class="text-capitalize" >Seleccione el tipo de pozo</label>
+          </div>
+        </form>
+
+      </div>
+
+      <div
+        *ngIf="this.f['selected'].value !== ''"
+        class="col-sm-12 mt-2">
+        <div class="table-action-center justify-content-start" >
+          <button class="btn btn-cancel-app "
+                  (click)="onTarifa()"
+              routerLinkActive="active"
+              [routerLink]= "urlTarifas">
+            Tarifa
+          </button>
+
+          <button class="btn  btn-cancel-app "
+                  (click)="onAjustesDesviacion()"
+              routerLinkActive="active"
+              [routerLink]="urlAjustesDesviacion">
+            Ajustes Desviacion
+          </button>
+
+          <button class="btn  btn-cancel-app "
+                  (click)="onAjustesPorcentajeVerticalidad()"
+              [disabled]="disableAjustesPorcentajeVerticalidad()"
+              routerLinkActive="active"
+              [routerLink]="urlAjustesPorcentajeVerticalidad">
+            Ajustes porcentaje verticalidad
+          </button>
+
+          <button class="btn  btn-cancel-app "
+                  (click)="onAjustesPorcentajeRecuperacion()"
+                  [disabled]="disableAjustesPorcentajeRecuperacion()"
+              routerLinkActive="active"
+              [routerLink]="urlAjustesPorcentajeRecuperacion">
+            Ajustes porcentaje recuperacion
+          </button>
+        </div>
+      </div>
+
+      <div class="col-sm-12">
+        <router-outlet></router-outlet>
+      </div>
+
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,28 @@
+<div class="d-flex flex-column">
+
+  <div class="app-container-title">
+
+    <div class="app-container-title-data">
+      <app-global-encabezado-seccion
+        [title]="'Caudales'"
+        [description]=""
+      ></app-global-encabezado-seccion>
+    </div>
+
+    <div class="app-container-title-info ">
+      <app-form-filter-table (filter)="onFilter($event)"></app-form-filter-table>
+
+      <button class="btn btn-primary-app "
+              (click)="onCreate()">
+        <i class="fas  fa-plus "></i>
+        Nuevo</button>
+    </div>
+  </div>
+
+  <app-listado
+    (edit)="onEdit($event)"
+    (delete)="onDelete($event)"
+  ></app-listado>
+
+</div>
+

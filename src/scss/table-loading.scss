@@ -1,0 +1,241 @@
+@import "variables";
+%animateShadowLoaded {
+  border-radius: $border-radius-input;
+  background-image: linear-gradient(30deg, #d2d2d2 0px, #d0d0d0 60px, #c5c3c3 80px);
+  background-size: 600px;
+  animation: shine-lines-table 1.6s infinite linear;
+  display: inline-block;
+  color: transparent !important;
+}
+
+%animateShadow {
+  @extend %animateShadowLoaded;
+  min-width:15px;
+  width: calc(100% - 5px);
+}
+
+.table_loader {
+  background-color: #FFF;
+  color: #666;
+  width: 100%;
+  padding: 0;
+
+  & thead tr th{
+    border: 1px solid #E5E5E5;
+    padding: 12px 10px;
+    text-align: left;
+  }
+
+  & tbody tr td{
+    border: 1px solid #E5E5E5;
+    padding: 12px 10px;
+    vertical-align: top;
+  }
+
+  & span{
+    height: 15px;
+    @extend %animateShadow;
+    & input {
+      display: none;
+    }
+  }
+
+  & span.sub-temp{
+    width: calc(100% - 50%);
+    margin-top: 5px;
+  }
+
+  & span.sub-temp-three{
+    width:calc(100% - 70%);
+    display:block
+  }
+}
+@keyframes shine-lines-table {
+  0% {opacity:0.4;}
+  40%{opacity:0.8;}
+  100% {opacity:0.4;}
+}
+.action_loader__active {
+  display: none;
+}
+
+.action_loader {
+  background-color: #FFF;
+  color: #666;
+  width: 100%;
+
+  .action_loader__active {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    @extend %animateShadow;
+  }
+}
+
+.tr__loader, .loader {
+  & td .table-action-center{
+    display: none;
+  }
+
+  & td, div {
+    & div span:first-child, span, i, div a , input, select, figure {
+      @extend %animateShadow;
+      height: 20px;
+      border: none !important;
+    }
+    & i, a , input {
+      display: none;
+    }
+    & div span:not(:first-child) {
+      display: none;
+    }
+  }
+}
+.fixTableHead {
+  overflow-y: auto;
+  //max-height: 425px;
+  height: auto !important;
+  margin-bottom: 0.5rem!important;
+  &-modal{
+    max-height: 425px !important;
+  }
+
+  & thead tr {
+    position: sticky;
+    top: -1px;
+    line-height: 1;
+    background-color: $color-text-gray!important;
+    --bs-table-accent-bg:  $color-text-gray!important;
+
+    & th{
+      padding: 0.8rem 0.5rem  !important;
+
+    }
+
+    & span {
+      text-transform: uppercase;
+      color: $color-text;
+    }
+  }
+}
+.table{
+  margin-bottom:  0 !important;
+}
+.table > :not(:first-child) {
+  border-top: none;
+}
+.table thead th, .table tbody tr td {
+  vertical-align: middle;
+  & span {
+    font-size: $font-size-secondary;
+  }
+}
+
+.table-action-center{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $navigation-a-padding-x;
+}
+.table-hover > tbody > tr:hover > * {
+  --bs-table-accent-bg: var(--bs-table-hover-bg);
+}
+th[sortable].desc:before, th[sortable].asc:before {
+  font-family: "Font Awesome 5 Free", sans-serif;
+  font-weight: 900;
+  display: block;
+  float: left;
+}
+th[sortable].asc:before{
+  content: "\f062";
+  color: $color-text-secondary;
+}
+th[sortable].desc:before{
+  content: "\f063";
+  color: $color-text-secondary;
+}
+.pagination{
+  margin-bottom: 0;
+}
+.page-item{
+  margin-bottom: 0;
+  &.active .page-link {
+    background-color: $color-primary;
+    border-color: $color-primary;
+  }
+  & .page-link {
+    color: black;
+    padding: 0  0.75rem;
+  }
+  &:first-child .page-link {
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+  }
+}
+.table-sm > :not(caption) > * > * {
+  padding: 0.15rem 0.5rem !important;
+}
+.table-action-center{
+  a{
+    padding: .2rem .5rem !important;
+  }
+}
+
+.table-striped > tbody tr, .table-striped > tbody tr td{
+  background-color: $color-container;
+  --bs-table-accent-bg: $color-container !important;
+}
+.table-striped > tbody tr:hover td{
+  background-color: $color-icono-hover ;
+  --bs-table-accent-bg: $color-icono-hover ;
+}
+
+.table-striped-child > tbody tr td{
+  background-color: $color-container !important;
+  --bs-table-accent-bg: $color-container !important;
+}
+.table-striped-child > tbody tr:hover td{
+  background-color: $color-icono-hover !important;
+  --bs-table-accent-bg: $color-icono-hover !important;
+}
+
+.loader-div div .card{
+  height: 100px;
+  width: 100%;
+  @extend %animateShadowLoaded;
+}
+.table-td-0 {
+  td {
+    padding: 0 0.5rem 0 0!important;
+    span:first-child{
+      margin-right: 2px;
+    }
+  }
+}
+
+.loader-component{
+  span, p, select, input, button {
+    height: 25px;
+    width: 100%;
+    pointer-events:none;
+    @extend %animateShadow;
+  }
+}
+
+.input-loader{
+  width: 100%;
+  pointer-events:none;
+  @extend %animateShadow;
+}
+.table-fixed{
+  height: 350px;
+  overflow-y:auto;
+  width: 100%;
+}
+
+.h-100px{
+  height: 100px;
+}
+

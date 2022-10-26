@@ -1,0 +1,35 @@
+<div class="d-flex flex-column">
+
+  <div class="app-container-title p-sticky z-10">
+
+    <div class="app-container-title-data">
+      <app-global-encabezado-seccion
+        [title]="' Datos Carbon - ' + pozo"
+        [description]="'Profundidad Registro ' + (profundidadRegistro$ | async) + ' Mts'"
+      ></app-global-encabezado-seccion>
+    </div>
+
+    <div class="app-container-title-info ">
+
+      <button class="btn btn-secondary-app "
+              routerLinkActive="active"
+              [disabled]="TIPOPOZO === TIPOPOZO_DESCRIPCION_NUCLEOS">
+        <span>Descripción de Carbones</span></button>
+
+      <button class="btn btn-secondary-app "
+              routerLinkActive="active"
+              [routerLink]="urlSuperficiePozo">
+        <span>Superficies</span></button>
+
+      <button class="btn btn-primary-app"
+              [routerLink]="urlDatoscarbon">
+        <i class="fas  fa-plus "></i><span>Nuevo</span></button>
+
+    </div>
+  </div>
+
+
+  <app-info-pozo [profundidadRegistro$]="profundidadRegistro$"></app-info-pozo>
+</div>
+
+

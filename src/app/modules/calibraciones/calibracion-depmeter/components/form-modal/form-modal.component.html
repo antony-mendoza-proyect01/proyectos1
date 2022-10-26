@@ -1,0 +1,540 @@
+<div class="modal-header">
+  <h5 >Registro - Datos Pozos Registrados  </h5>
+  <a type="button" class="close btn-cancel-app"
+     (click)="activeModal.dismiss('Canceled')">
+    <i class="fas fa-times"></i></a>
+</div>
+
+
+<div class="modal-body">
+
+  <div class="row">
+
+    <div class="col-sm-12">
+      <h4 class="mb-2 c-primary">Datos Generales</h4>
+    </div>
+
+    <div class="col-sm-4">
+      <div class="form-group group">
+
+        <div class="input-group">
+          <input class="form-control input" placeholder="yyyy-mm-dd"
+                 style="left: 0;"
+                 [minDate]="{year: 1900, month: 1, day: 1}"
+                 [maxDate]="{year: 3000, month: 12, day: 31}"
+                 name="dp"  ngbDatepicker #d="ngbDatepicker">
+
+          <label class="text-capitalize" >Fecha creacion </label>
+
+          <button class="btn btn-secondary-app" (click)="d.toggle()" type="button">
+            <i class="fas fa-calendar"></i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <div class="form-group group">
+        <select  class="form-control input">
+          <!--          <option *ngFor="let confirmacion of confirmaciones" [value]="confirmacion.id">{{ confirmacion.titulo}}</option>-->
+        </select>
+        <label class="text-capitalize" >Operador de Registro</label>
+      </div>
+    </div>
+
+
+
+
+    <div class="col-sm-4">
+      <div class="form-group group">
+        <select  class="form-control input">
+          <!--          <option *ngFor="let confirmacion of confirmaciones" [value]="confirmacion.id">{{ confirmacion.titulo}}</option>-->
+        </select>
+        <label class="text-capitalize" >Unidad #</label>
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <div class="form-group group">
+        <select  class="form-control input">
+          <!--          <option *ngFor="let confirmacion of confirmaciones" [value]="confirmacion.id">{{ confirmacion.titulo}}</option>-->
+        </select>
+        <label class="text-capitalize" >Tipo de Sonda</label>
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <div class="form-group group">
+        <select  class="form-control input">
+          <!--          <option *ngFor="let confirmacion of confirmaciones" [value]="confirmacion.id">{{ confirmacion.titulo}}</option>-->
+        </select>
+        <label class="text-capitalize" >Serial Sonda</label>
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <div class="form-group group">
+        <select  class="form-control input">
+          <!--          <option *ngFor="let confirmacion of confirmaciones" [value]="confirmacion.id">{{ confirmacion.titulo}}</option>-->
+        </select>
+        <label class="text-capitalize" >Estado</label>
+      </div>
+    </div>
+
+<!--#1-->
+    <div class="row">
+
+      <div class="col-sm-12">
+        <h4 class="my-2 c-primary">Datos Calibracion Microresistividad</h4>
+      </div>
+      <div class="table-responsive fixTableHead">
+
+        <h5 class="my-2 c-primary text-center">VOLTAJE</h5>
+
+        <table class="table table-borderless  table-sm  ">
+          <thead>
+          <tr>
+            <th scope="col" class="w-25 text-center"><span> Puntos de Refirencia</span></th>
+            <th scope="col" class="w-25 text-center"><span>(mV)</span></th>
+            <th scope="col" class="w-25 text-center"><span>CPS</span></th>
+            <th scope="col" class="w-25 text-center"><span>% Variacion puntos en Referencia</span></th>
+
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td><label class="fw-bold">Punto 1 - Low:</label></td>
+            <td>
+              <input type="text" class="form-control input-initial" />
+            </td>
+            <td>
+              <input type="text" class="form-control input-initial" />
+            </td>
+          </tr>
+
+          <tr>
+            <td><label class="fw-bold">Low (Ultima Calibracion)</label></td>
+            <td>
+              <input type="text" class="form-control input-initial" />
+            </td>
+            <td>
+              <div class="form-group ">
+                <input type="string"
+                       class="form-control input-initial" />
+              </div>
+            </td>
+
+            <td>
+              <div class="form-group ">
+                <input type="string"
+                       class="form-control input-initial" />
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td><label class="fw-bold"> Punto 2 - High</label></td>
+            <td>
+              <input type="text" class="form-control input-initial" />
+            </td>
+            <td>
+              <div class="form-group ">
+                <input type="string"
+                       class="form-control input-initial" />
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td><label class="fw-bold">High (Ultima calibracion)</label></td>
+            <td>
+              <input type="text" class="form-control input-initial" />
+            </td>
+            <td>
+              <div class="form-group ">
+                <input type="string"
+                       class="form-control input-initial" />
+              </div>
+            </td>
+            <td>
+              <div class="form-group ">
+                <input type="string"
+                       class="form-control input-initial" />
+              </div>
+            </td>
+          </tr>
+
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+    </div>
+
+<!--  #2-->
+
+  <div class="row">
+
+    <div class="col-sm-12">
+      <h4 class="my-2 c-primary">Datos Calibracion Caliper 1^3</h4>
+    </div>
+    <div class="table-responsive fixTableHead">
+      <table class="table table-borderless  table-sm  ">
+        <thead>
+        <tr>
+          <th scope="col" class="w-25 text-center"><span> Puntos de Refirencia</span></th>
+          <th scope="col" class="w-25 text-center"><span>(MM)</span></th>
+          <th scope="col" class="w-25 text-center"><span>CPS</span></th>
+          <th scope="col" class="w-25 text-center"><span>% Variacion puntos en Referencia</span></th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td><label class="fw-bold">Punto 1 - Low:</label></td>
+          <td>
+            <input type="text" class="form-control input-initial" />
+          </td>
+          <td>
+            <input type="text" class="form-control input-initial" />
+          </td>
+        </tr>
+
+        <tr>
+          <td><label class="fw-bold">Low (Ultima Calibracion)</label></td>
+          <td>
+            <input type="text" class="form-control input-initial" />
+          </td>
+          <td>
+            <div class="form-group ">
+              <input type="string"
+                     class="form-control input-initial" />
+            </div>
+          </td>
+
+          <td>
+            <div class="form-group ">
+              <input type="string"
+                     class="form-control input-initial" />
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><label class="fw-bold"> Punto 2 - High</label></td>
+          <td>
+            <input type="text" class="form-control input-initial" />
+          </td>
+          <td>
+            <div class="form-group ">
+              <input type="string"
+                     class="form-control input-initial" />
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><label class="fw-bold">High (Ultima calibracion)</label></td>
+          <td>
+            <input type="text" class="form-control input-initial" />
+          </td>
+          <td>
+            <div class="form-group ">
+              <input type="string"
+                     class="form-control input-initial" />
+            </div>
+          </td>
+          <td>
+            <div class="form-group ">
+              <input type="string"
+                     class="form-control input-initial" />
+            </div>
+          </td>
+        </tr>
+
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+
+<!--  #3-->
+
+  <div class="row">
+
+    <div class="col-sm-12">
+      <h4 class="my-2 c-primary">Datos Calibracion Caliper 2^4</h4>
+    </div>
+    <div class="table-responsive fixTableHead">
+
+      <table class="table table-borderless  table-sm  ">
+        <thead>
+        <tr>
+          <th scope="col" class="w-25 text-center"><span> Puntos de Refirencia</span></th>
+          <th scope="col" class="w-25 text-center"><span>(MM)</span></th>
+          <th scope="col" class="w-25 text-center"><span>CPS</span></th>
+          <th scope="col" class="w-25 text-center"><span>% Variacion puntos en Referencia</span></th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td><label class="fw-bold">Punto 1 - Low:</label></td>
+          <td>
+            <input type="text" class="form-control input-initial" />
+          </td>
+          <td>
+            <input type="text" class="form-control input-initial" />
+          </td>
+        </tr>
+
+        <tr>
+          <td><label class="fw-bold">Low (Ultima Calibracion)</label></td>
+          <td>
+            <input type="text" class="form-control input-initial" />
+          </td>
+          <td>
+            <div class="form-group ">
+              <input type="string"
+                     class="form-control input-initial" />
+            </div>
+          </td>
+
+          <td>
+            <div class="form-group ">
+              <input type="string"
+                     class="form-control input-initial" />
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><label class="fw-bold"> Punto 2 - High</label></td>
+          <td>
+            <input type="text" class="form-control input-initial" />
+          </td>
+          <td>
+            <div class="form-group ">
+              <input type="string"
+                     class="form-control input-initial" />
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><label class="fw-bold">High (Ultima calibracion)</label></td>
+          <td>
+            <input type="text" class="form-control input-initial" />
+          </td>
+          <td>
+            <div class="form-group ">
+              <input type="string"
+                     class="form-control input-initial" />
+            </div>
+          </td>
+          <td>
+            <div class="form-group ">
+              <input type="string"
+                     class="form-control input-initial" />
+            </div>
+          </td>
+        </tr>
+
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+<!-- #4-->
+  <div class="row">
+
+    <div class="col-sm-12">
+      <h4 class="my-2 c-primary">Verificacion de la Verticalidad (Azimut - inclinacion)</h4>
+    </div>
+    <div class="table-responsive fixTableHead">
+      <h5 class="my-2 c-primary text-center">INCLINACION</h5>
+
+      <table class="table table-borderless  table-sm  ">
+        <thead>
+        <tr>
+          <th scope="col" class="w-10 text-center"><span> Angulo(*)</span></th>
+          <th scope="col" class="w-25 text-center"><span>inclinacion SANG</span></th>
+          <th scope="col" class="w-25 text-center"><span>max variacion del promedio SANG(7Max)</span></th>
+          <th scope="col" class="w-10 text-center"><span>Angulo(*)</span></th>
+          <th scope="col" class="w-25 text-center"><span>Inclinacion SANG</span></th>
+          <th scope="col" class="w-25 text-center"><span>max variacion del promedio SANG(7Max)</span></th>
+
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr>
+          <td>
+            <input type="text" class="form-control input-initial" />
+          </td>
+          <td><label class="fw-bold">  </label></td>
+          <td><label class="fw-bold">  </label></td>
+          <td>
+            <input type="text" class="form-control input-initial" />
+          </td>
+          <td><label class="fw-bold">  </label></td>
+          <td><label class="fw-bold">  </label></td>
+        </tr>
+
+        <tr>
+          <td><label class="fw-bold">Norte</label></td>
+          <td>
+            <input type="text" class="form-control input-initial" />
+          </td>
+          <td>
+            <input type="text" class="form-control input-initial" />
+          </td>
+          <td><label class="fw-bold">Norte</label></td>
+          <td>
+            <input type="text" class="form-control input-initial" />
+          </td>
+          <td>
+            <input type="text" class="form-control input-initial" />
+          </td>
+        </tr>
+
+        <tr>
+          <td><label class="fw-bold">Sur</label></td>
+          <td>
+            <input type="text" class="form-control input-initial" />
+          </td>
+          <td>
+            <input type="text" class="form-control input-initial" />
+          </td>
+          <td><label class="fw-bold">Sur</label></td>
+          <td>
+            <input type="text" class="form-control input-initial" />
+          </td>
+          <td>
+            <input type="text" class="form-control input-initial" />
+          </td>
+        </tr>
+
+        <tr>
+          <td><label class="fw-bold">Este</label></td>
+          <td>
+            <input type="text" class="form-control input-initial" />
+          </td>
+          <td>
+            <input type="text" class="form-control input-initial" />
+          </td>
+          <td><label class="fw-bold">Este</label></td>
+          <td>
+            <input type="text" class="form-control input-initial" />
+          </td>
+          <td>
+            <input type="text" class="form-control input-initial" />
+          </td>
+        </tr>
+
+        <tr>
+          <td><label class="fw-bold">Oeste</label></td>
+          <td>
+            <input type="text" class="form-control input-initial" />
+          </td>
+          <td>
+            <input type="text" class="form-control input-initial" />
+          </td>
+          <td><label class="fw-bold">Oeste</label></td>
+          <td>
+            <input type="text" class="form-control input-initial" />
+          </td>
+          <td>
+            <input type="text" class="form-control input-initial" />
+          </td>
+        </tr>
+
+
+        </tbody>
+      </table>
+
+    </div>
+    <h5 class="my-2 c-primary text-center">VOLTAJE</h5>
+    <div class="table-responsive fixTableHead">
+      <table class="table table-borderless  table-sm  ">
+        <thead>
+        <tr>
+          <th scope="col" class="w-10 text-center"><span>  </span></th>
+          <th scope="col" class="w-25 text-center"><span>inclinacion SANG</span></th>
+          <th scope="col" class="w-25 text-center"><span>max variacion del promedio SANG(7Max)</span></th>
+          <th scope="col" class="w-10 text-center"><span>  </span></th>
+          <th scope="col" class="w-25 text-center"><span>Inclinacion SANG</span></th>
+          <th scope="col" class="w-25 text-center"><span>max variacion del promedio SANG(7Max)</span></th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td><label class="fw-bold">Norte</label></td>
+          <td>
+            <input type="text" class="form-control input-initial" />
+          </td>
+          <td>
+            <input type="text" class="form-control input-initial" />
+          </td>
+          <td><label class="fw-bold">Norte</label></td>
+          <td>
+            <input type="text" class="form-control input-initial" />
+          </td>
+          <td>
+            <input type="text" class="form-control input-initial" />
+          </td>
+        </tr>
+
+        <tr>
+          <td><label class="fw-bold">Sur</label></td>
+          <td>
+            <input type="text" class="form-control input-initial" />
+          </td>
+          <td>
+            <input type="text" class="form-control input-initial" />
+          </td>
+          <td><label class="fw-bold">Sur</label></td>
+          <td>
+            <input type="text" class="form-control input-initial" />
+          </td>
+          <td>
+            <input type="text" class="form-control input-initial" />
+          </td>
+        </tr>
+
+        <tr>
+          <td><label class="fw-bold">Este</label></td>
+          <td>
+            <input type="text" class="form-control input-initial" />
+          </td>
+          <td>
+            <input type="text" class="form-control input-initial" />
+          </td>
+          <td><label class="fw-bold">Este</label></td>
+          <td>
+            <input type="text" class="form-control input-initial" />
+          </td>
+          <td>
+            <input type="text" class="form-control input-initial" />
+          </td>
+        </tr>
+
+        </tbody>
+      </table>
+
+    </div>
+
+  </div>
+
+
+</div>
+
+
+<div class="modal-footer ">
+  <button type="button" class="btn btn-sm btn-cancel-app"
+          (click)="activeModal.dismiss('Canceled')">Cancelar</button>
+  <button type="button" class="btn btn-sm btn-primary-app"
+          (click)="onSubmit()">Guardar cambios</button>
+</div>

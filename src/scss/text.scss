@@ -1,0 +1,14 @@
+@import "variables";
+
+.t-fs-primary{
+  font-size: $font-size-primary;
+}
+.t-fs-secondary{
+  font-size: $font-size-secondary;
+}
+.t-fs-detail{
+  font-size: $font-size-secondary - 2px;
+}
+p, h1, h2, h3, h4, h5, h6, label{
+  margin: 0;
+}

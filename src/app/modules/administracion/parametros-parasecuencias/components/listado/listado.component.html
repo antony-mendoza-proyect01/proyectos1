@@ -1,0 +1,46 @@
+<div class="table-responsive fixTableHead" >
+  <table class="table table-striped  table-bordered  table-sm mb-1 "
+         [ngClass]="{'table_loader': loading$ | async  }">
+    <thead>
+    <tr>
+
+      <th scope="col" sortable="codParasec" (sort)="onSort($event)"><span>codigo</span></th>
+      <th scope="col" class="text-center w-action"><span>Acciones</span></th>
+
+    </tr>
+
+    </thead>
+    <tbody>
+    <ng-container *ngIf="perasecuencias$ | async as parasecuencias">
+      <tr *ngFor="let parasecuencia of  parasecuencias"
+          [ngClass]="{'tr__loader': parasecuencia.codParasec === perasecuenciaEdit$.codParasec}"  >
+        <td><span>{{ parasecuencia.codParasec }}</span></td>
+
+
+        <td >
+          <div class="table-action-center">
+            <a class="btn-cancel-app " (click)="_delete(parasecuencia)">
+              <i class="fas fa-trash"></i>
+            </a>
+          </div>
+        </td>
+      </tr>
+    </ng-container>
+
+    <tr *ngIf="(perasecuencias$ | async)?.length === 0" >
+      <td colspan="99" class="text-center"><span>No hay registros</span></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <ng-container *ngIf="perasecuencias$ | async as parasecuencias " >
+    <ng-container *ngIf="perasecuenciasAux$ | async as parasecuenciasAux ">
+      <app-paginado
+        [items]="parasecuencias"
+        [itemsAux]="parasecuenciasAux"
+        (itemsPaginado)="onItemsPaginado($event)"></app-paginado>
+    </ng-container>
+  </ng-container>
+</div>
+
+

@@ -1,0 +1,80 @@
+<form [formGroup]="datosPozoForm" #formDir="ngForm" >
+  <div class="row">
+
+    <div class="col-sm-12">
+      <div class="form-group group">
+        <select formControlName="codTipoPerforacion" [ngClass]="{ 'is-invalid': submitted && f.codTipoPerforacion.errors }" class="form-control input">
+          <option *ngFor="let c of TiposPerforacionPozo | async" [value]="c.codTipoPerforacion">{{ c.perforacion}}</option>
+        </select>
+        <label class="text-capitalize" >Tipo de Perforacion </label>
+        <div *ngIf="submitted && f.codTipoPerforacion.errors" class="invalid-feedback">
+          <div *ngIf="f.codTipoPerforacion.errors.required">Tipo de Perforacion es requirido</div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-sm-12">
+      <div class="form-group group">
+        <select formControlName="codDistrito" [ngClass]="{ 'is-invalid': submitted && f.codDistrito.errors }" class="form-control input">
+          <option *ngFor="let c of distritoPozo | async" [value]="c.codDto">{{ c.distrito}}</option>
+        </select>
+        <label class="text-capitalize" >Distrito </label>
+        <div *ngIf="submitted && f.codDistrito.errors" class="invalid-feedback">
+          <div *ngIf="f.codDistrito.errors.required">Distrito es requirido</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-12">
+      <div class="form-group group">
+        <select formControlName="codProvincia" [ngClass]="{ 'is-invalid': submitted && f.codProvincia.errors }" class="form-control input">
+          <option *ngFor="let c of provinciasPozo | async" [value]="c.codProv">{{ c.provincia}}</option>
+        </select>
+        <label class="text-capitalize" >Provincia </label>
+        <div *ngIf="submitted && f.codProvincia.errors" class="invalid-feedback">
+          <div *ngIf="f.codProvincia.errors.required">Provincia es requirido</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-12">
+      <div class="form-group group">
+        <select formControlName="codProyecto" [ngClass]="{ 'is-invalid': submitted && f.codProyecto.errors }" class="form-control input">
+          <option *ngFor="let c of codigoDelProyectoPozo | async" [value]="c.codProyecto">{{ c.codProyecto}}</option>
+        </select>
+        <label class="text-capitalize" >Codigo de Proyecto </label>
+        <div *ngIf="submitted && f.codProyecto.errors" class="invalid-feedback">
+          <div *ngIf="f.codProyecto.errors.required">Codigo de Proyecto es requirido</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-12">
+      <div class="form-group group">
+        <select formControlName="codLaboratorio" [ngClass]="{ 'is-invalid': submitted && f.codLaboratorio.errors }" class="form-control input">
+          <option *ngFor="let c of laboratorioPozo | async" [value]="c.codLab">{{ c.laboratorio}}</option>
+        </select>
+        <label class="text-capitalize" >Laboratorio </label>
+        <div *ngIf="submitted && f.codLaboratorio.errors" class="invalid-feedback">
+          <div *ngIf="f.codLaboratorio.errors.required">codLaboratorio es requirido</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-12">
+      <span  class="fw-bold me-2">Area:</span>
+      <span>{{datopozoInfo.area}}</span>
+    </div>
+
+
+    <div class="col-sm-12">
+      <div class="d-flex justify-content-end">
+        <button type="button" (click)="onSubmit()" class="btn btn-primary-app">Guardar cambios</button>
+      </div>
+    </div>
+
+  </div>
+
+
+</form>

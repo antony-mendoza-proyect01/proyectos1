@@ -1,0 +1,48 @@
+<div id="content">
+  <app-header class="header-fixed"
+              [user]="user"
+              [navigationAplicacion]="aplications"
+  ></app-header>
+
+  <div class="content-page">
+    <!-------------------------------------------
+    Init, content
+    ------------------------------------------->
+    <div class="container">
+
+      <div class="d-flex align-items-center">
+        <img class="me-2" [src]="logo" alt="logo">
+        <h5 class="fw-bold pt-3  mb-3 t-c-primary-dark">Aplicaciones</h5>
+      </div>
+
+
+      <div class="row">
+
+        <div class="col-sm-3" *ngFor="let n of aplications">
+          <div class="card tree-card">
+            <div class="card-header tree-card__header">
+              <h5>  {{n.titulo}}</h5>
+            </div>
+
+            <div class="card-body tree-card__body">
+              <app-navigation-list [navigations]="n.navegacion"></app-navigation-list>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-------------------------------------------
+      End, content
+    ------------------------------------------->
+  </div>
+
+</div>
+
+
+
+
+
+

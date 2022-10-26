@@ -1,0 +1,81 @@
+<div class="modal-header">
+  <h5 class="fw-bold text-capitalize">{{!area.codigo ? 'Crear area' : 'Editar area'}}</h5>
+  <a type="button" class="close btn-cancel-app"
+      (click)="activeModal.dismiss('Canceled')">
+    <i class="fas fa-times"></i></a>
+</div>
+
+<div class="modal-body">
+  <form [formGroup]="areaForm" #formDir="ngForm" >
+
+    <div class="container-fluid">
+      <div class="row">
+
+        <div class="col-12 col-sm-4">
+          <div class="form-group group">
+            <input type="text" formControlName="area"
+                   [ngClass]="{ 'is-invalid': submitted && f.area.errors }"
+                   class="form-control input" />
+            <label class="text-capitalize" >area</label>
+            <div *ngIf="submitted && f.area.errors" class="invalid-feedback">
+              <div *ngIf="f.area.errors.required">Area es requirido</div>
+              <div *ngIf="f.area.errors.minlength">Debe tener al menos {{f.area.errors.minlength.requiredLength}} caracteres.</div>
+              <div *ngIf="f.area.errors.maxlength">Debe tener maximo {{f.area.errors.maxlength.requiredLength}} caracteres.</div>
+            </div>
+
+            <app-global-mensaje-formulario
+              [control]="'area'"
+              [formulario]="areaForm"
+            ></app-global-mensaje-formulario>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-4">
+          <div class="form-group group">
+            <input type="text" formControlName="buzamientoPromedio"
+                   [ngClass]="{ 'is-invalid': submitted && f.buzamientoPromedio.errors }"
+                   class="form-control input" />
+            <label class="text-capitalize" >buzamientoPromedio</label>
+            <div *ngIf="submitted && f.buzamientoPromedio.errors" class="invalid-feedback">
+              <div *ngIf="f.buzamientoPromedio.errors.required">Buzamiento Promedio es requirido</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-4">
+          <div class="form-group group">
+            <input type="number" formControlName="codigoGdb"
+                   [ngClass]="{ 'is-invalid': submitted && f.codigoGdb.errors }"
+                   class="form-control input" />
+            <label class="text-capitalize" >codigo Gdb</label>
+            <div *ngIf="submitted && f.codigoGdb.errors" class="invalid-feedback">
+              <div  *ngIf="f.codigoGdb.errors.required">Codigo Gdb es requirido</div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-4">
+          <div class="form-group group">
+            <input type="number" formControlName="pozoDesviado"
+                   [ngClass]="{ 'is-invalid': submitted && f.pozoDesviado.errors }"
+                   class="form-control input" />
+            <label class="text-capitalize" >pozo Desviado</label>
+            <div *ngIf="submitted && f.pozoDesviado.errors" class="invalid-feedback">
+              <div   *ngIf="f.pozoDesviado.errors.required">Pozo Desviado es requirido</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </form>
+</div>
+
+
+<div class="modal-footer ">
+  <button type="button" class="btn btn-sm btn-cancel-app"
+          (click)="activeModal.dismiss('Canceled')">Cancelar</button>
+  <button type="button" class="btn btn-sm btn-primary-app"
+          (click)="onSubmit()">Guardar cambios</button>
+</div>

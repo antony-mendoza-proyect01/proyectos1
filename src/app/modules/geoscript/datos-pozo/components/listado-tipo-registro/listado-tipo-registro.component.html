@@ -1,0 +1,36 @@
+
+<div class="card c-sticky-info">
+
+  <div class="d-flex flex-column">
+
+    <div class="table-responsive fixTableHead" >
+      <table class="table   table-sm mb-1 "
+             [ngClass]="{'table_loader': loading$ | async  }">
+        <thead>
+        <tr>
+          <th scope="col"  ><span>Nombre</span></th>
+          <th scope="col"  ><span>Present</span></th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <ng-container *ngIf="datosPozos$ | async as datosPozos">
+          <tr *ngFor="let datosPozo of datosPozos.tiposRegistro">
+
+            <td><span>{{ datosPozo.nombre}}</span></td>
+            <td class="text-center">
+              <i  *ngIf="datosPozo.checked === true" class="fas fa-check c-success"></i>
+            </td>
+          </tr>
+        </ng-container>
+
+        <tr *ngIf="(datosPozos$ | async)?.length === 0" >
+          <td colspan="99" class="text-center"><span>No hay registros</span></td>
+        </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+  </div>
+</div>

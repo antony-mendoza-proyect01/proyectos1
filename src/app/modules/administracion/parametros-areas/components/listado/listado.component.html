@@ -1,0 +1,52 @@
+<div class="table-responsive fixTableHead" >
+    <table class="table table-striped table-bordered  table-sm mb-1 "
+            [ngClass]="{'table_loader': loading$ | async  }">
+      <thead>
+      <tr>
+        <th scope="col" sortable="area" (sort)="onSort($event)"><span>area</span></th>
+        <th scope="col" sortable="buzamientoPromedio" (sort)="onSort($event)"><span>buzamiento Promedio</span></th>
+        <th scope="col" sortable="codigoGdb" (sort)="onSort($event)"><span>codigo Gdb</span></th>
+        <th scope="col" sortable="pozoDesviado" (sort)="onSort($event)" ><span>pozo Desviado</span></th>
+        <th scope="col" class="text-center w-action"><span>Acciones</span></th>
+      </tr>
+      </thead>
+      <tbody>
+      <ng-container *ngIf="areas$ | async as areas">
+        <tr *ngFor="let area of areas"
+            [ngClass]="{'tr__loader': area.codigo === areaEdit$.codigo}"  >
+          <td><span>{{ area.area }}</span></td>
+          <td><span>{{ area.buzamientoPromedio }}</span></td>
+          <td><span>{{ area.codigoGdb }}</span></td>
+          <td><span>{{ area.pozoDesviado }}</span></td>
+          <td >
+            <div class="table-action-center">
+              <a class="btn-secondary-app " (click)="_edit(area)">
+                <i class="fas fa-edit"></i>
+              </a>
+
+              <a class="btn-cancel-app " (click)="_delete(area)">
+                <i class="fas fa-trash"></i>
+              </a>
+            </div>
+
+          </td>
+        </tr>
+      </ng-container>
+
+      <tr *ngIf="(areas$ | async)?.length === 0" >
+        <td colspan="99" class="text-center"><span>No hay registros</span></td>
+      </tr>
+      </tbody>
+    </table>
+
+  <ng-container *ngIf="areas$ | async as areas " >
+    <ng-container *ngIf="areasAux$ | async as areasAux ">
+        <app-paginado
+          [items]="areas"
+          [itemsAux]="areasAux"
+          (itemsPaginado)="onItemsPaginado($event)"></app-paginado>
+    </ng-container>
+  </ng-container>
+</div>
+
+

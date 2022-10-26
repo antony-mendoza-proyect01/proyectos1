@@ -1,0 +1,47 @@
+<div class="d-flex flex-fill flex-column bg-c-panel h-100">
+  <div class="d-flex flex-fill flex-column align-items-center justify-content-center p-4 p-sm-5">
+
+    <div class="d-flex flex-fill border-radius-app w-100 h-100 shadow overflow-hidden container-tel">
+
+<!--      dialogo-->
+      <div class="d-flex flex-column justify-content-center align-items-end
+      container-tel-view
+      flex-fill bg-c-container-primary h-100 position-relative">
+
+        <svg class="position-absolute top-0  end-0 pointer-events-none"
+             viewBox="0 0 960 540" width="100%" height="100%"
+             preserveAspectRatio="xMidYMax slice">
+          <g class="text-white opacity-25" fill="none" stroke="currentColor" stroke-width="100">
+            <circle r="234" cx="196" cy="23"></circle>
+            <circle r="234" cx="790" cy="491"></circle>
+          </g>
+        </svg>
+
+        <div class="d-flex flex-column justify-content-center align-items-end w-100 z-10 px-5">
+          <h1 class="fw-bold c-t-gray">Bienvenido a</h1>
+          <h1 class="fw-bold c-t-gray">{{nombreApp}}</h1>
+        </div>
+
+      </div>
+
+<!--      login-->
+      <div class="d-flex flex-column justify-content-center  flex-fill bg-c-container container-tel-login">
+        <figure>
+          <img [src]="logo" alt="logo">
+        </figure>
+
+        <app-form></app-form>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+
+<app-toasts class="ngb-toasts"
+            style="bottom: 0;
+    top: initial;"
+            aria-live="polite"
+            aria-atomic="true"></app-toasts>

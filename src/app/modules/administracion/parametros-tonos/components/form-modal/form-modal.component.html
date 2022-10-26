@@ -1,0 +1,50 @@
+<div class="modal-header">
+  <h5 class="fw-bold text-capitalize">{{!tono.codTono ? 'Crear ' : 'Editar '}}tono</h5>
+  <a type="button" class="close btn-cancel-app"
+     (click)="activeModal.dismiss('Canceled')"><i class="fas fa-times"></i></a>
+</div>
+
+<div class="modal-body">
+  <form [formGroup]="tonoForm" #formDir="ngForm" >
+
+    <div class="container-fluid">
+      <div class="row">
+
+        <div class="col-12 col-sm-4">
+          <div class="form-group group">
+            <input type="string" formControlName="codTono"
+                   [ngClass]="{ 'is-invalid': submitted && f.codTono.errors }"
+                   class="form-control input" />
+            <label class="text-capitalize" >codigo</label>
+            <div *ngIf="submitted && f.codTono.errors" class="invalid-feedback">
+              <div *ngIf="f.codTono.errors.required">Codigo es requirido</div>
+              <div *ngIf="f.codTono.errors.minlength">Debe tener al menos {{f.codTono.errors.minlength.requiredLength}} caracteres.</div>
+              <div *ngIf="f.codTono.errors.maxlength">Debe tener maximo {{f.codTono.errors.maxlength.requiredLength}} caracteres.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-8">
+          <div class="form-group group">
+            <input type="string" formControlName="tono"
+                   [ngClass]="{ 'is-invalid': submitted && f.tono.errors }"
+                   class="form-control input" />
+            <label class="text-capitalize" >tono</label>
+            <div *ngIf="submitted && f.tono.errors" class="invalid-feedback">
+              <div *ngIf="f.tono.errors.required">Codigo es requirido</div>
+              <div *ngIf="f.tono.errors.minlength">Debe tener al menos {{f.tono.errors.minlength.requiredLength}} caracteres.</div>
+              <div *ngIf="f.tono.errors.maxlength">Debe tener maximo {{f.tono.errors.maxlength.requiredLength}} caracteres.</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </form>
+</div>
+<div class="modal-footer ">
+  <button type="button" class="btn btn-sm btn-cancel-app"
+          (click)="activeModal.dismiss('Canceled')">Cancelar</button>
+  <button type="button" class="btn btn-sm btn-primary-app"
+          (click)="onSubmit()">Guardar cambios</button>
+</div>

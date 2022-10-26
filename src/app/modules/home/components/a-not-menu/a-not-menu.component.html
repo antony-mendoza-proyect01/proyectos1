@@ -1,0 +1,9 @@
+<!--not menu-->
+<a class="a-navigation"
+   *ngIf="!navigation.tieneMenu"
+   [routerLink]="navigation.link"
+   routerLinkActive="active activeUrl"
+   aria-controls="collapseExample">
+  <span class="d-flex align-items-center">{{navigation.titulo}}</span>
+</a>
+<!--not menu-->

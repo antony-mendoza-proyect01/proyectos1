@@ -1,0 +1,38 @@
+
+<h1 class="fw-bold">Iniciar sesión</h1>
+
+<form [formGroup]="registerForm">
+
+
+  <div class="form-group group">
+    <input  type="text"
+            formControlName="username"
+            class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }"
+            id="username">
+    <label class="fw-500" for="username">Usuario</label>
+    <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+      <div *ngIf="f.username.errors.required">Usuario es requerido</div>
+    </div>
+  </div>
+
+  <div class="form-group group">
+    <input  type="password"
+            class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
+            formControlName="password"
+            id="password">
+    <label class="fw-500" for="password">Contraseña</label>
+    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+      <div *ngIf="f.password.errors.required">Contraseña es requerido</div>
+    </div>
+  </div>
+
+  <button [disabled]="!(action$ | async)"
+          (click)="onSubmit()  "
+          class="btn btn-primary-app  mt-3 py-3 w-100">
+    {{!(action$ | async) ? 'Cargando' : 'Ingresar' }}
+    <i class="ps-md-1 fas "
+        [ngClass]="{'fa-lock': action$ | async,
+                    'fa-spinner animation-sync' : !(action$ | async)} "></i>
+  </button>
+
+</form>

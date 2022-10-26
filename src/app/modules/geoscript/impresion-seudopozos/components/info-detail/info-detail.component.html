@@ -1,0 +1,50 @@
+<ng-container *ngIf="seudopozoInfoEdit$ | async as edit"  >
+  <div class="lh-sm "  [ngClass]="{'loader': loading$  | async}">
+
+    <div class="app-info__container__data__detail">
+      <span class="app-info__container__data__detail__title">Manto</span>
+      <div class="app-info__container__data__detail__description">{{edit.manto}}</div>
+    </div>
+
+    <div class="app-info__container__data__detail">
+      <span class="app-info__container__data__detail__title">Desde</span>
+      <div class="app-info__container__data__detail__description">{{edit.desde}}</div>
+    </div>
+
+
+    <div class="app-info__container__data__detail">
+      <span class="app-info__container__data__detail__title">Hasta</span>
+      <div class="app-info__container__data__detail__description">{{edit.hasta}}</div>
+    </div>
+
+    <div class="app-info__container__data__detail">
+      <span class="app-info__container__data__detail__title">Espesor</span>
+      <div class="app-info__container__data__detail__description">{{edit.espesor}}</div>
+    </div>
+
+    <div class="app-info__container__data__detail">
+      <span class="app-info__container__data__detail__title">Desde desviado</span>
+      <div class="app-info__container__data__detail__description">{{edit.desde_desviado}}</div>
+    </div>
+
+    <div class="app-info__container__data__detail">
+      <span class="app-info__container__data__detail__title">Hasta desviado</span>
+      <div class="app-info__container__data__detail__description">{{edit.hasta_desviado}}</div>
+    </div>
+
+    <div class="app-info__container__data__detail">
+      <span class="app-info__container__data__detail__title">Espesor desviado</span>
+      <div class="app-info__container__data__detail__description">{{edit.espesor_desviado}}</div>
+    </div>
+
+
+    <div class="app-info__container__data__detail">
+      <span class="app-info__container__data__detail__title">Fecha Ingreso</span>
+      <div class="app-info__container__data__detail__description">{{edit.fecha_ingreso | date}}</div>
+    </div>
+
+  </div>
+</ng-container>
+
+
+

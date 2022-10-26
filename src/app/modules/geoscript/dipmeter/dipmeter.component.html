@@ -1,0 +1,31 @@
+<div class="d-flex flex-column">
+  <div class="app-container-title">
+    <div class="app-container-title-data">
+      <div class="app-container-title-data-titulo">
+        <h4 class="fw-bold text-uppercase">Dipmeter -</h4>
+        <h4 class="fw-bold c-primary">{{pozo}}</h4>
+      </div>
+
+      <div class="d-flex align-items-center gap-3 ">
+        <app-form-filter-table (filter)="onFilter($event)"></app-form-filter-table>
+
+        <button class="btn btn-primary-app "
+                (click)="onCreate()">
+          <i class="fas  fa-plus "></i>
+          Nuevo</button>
+      </div>
+    </div>
+
+  </div>
+
+
+  <app-listado
+    (edit)="onEdit($event)"
+    (delete)="onDelete($event)"
+  ></app-listado>
+
+</div>
+
+
+
+
